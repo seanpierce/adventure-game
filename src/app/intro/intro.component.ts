@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Character } from '../character.model';
+import { Character } from '../models/character.model';
+import { Question } from '../models/question.model';
 
 @Component({
   selector: 'app-intro',
@@ -9,10 +10,23 @@ import { Character } from '../character.model';
 export class IntroComponent implements OnInit {
 
   player: Character;
-  question1 = true;
+  questions;
+  questionIncrementer: number = 1;
 
   constructor() {
     this.player = new Character(10, 10, 10);
+    this.questions = [
+      new Question(1, "Question 1", ["A", "B", "C"]),
+      new Question(2, "Question 2", ["A", "B", "C"]),
+      new Question(3, "Question 3", ["A", "B", "C"]),
+      new Question(4, "Question 4", ["A", "B", "C"]),
+      new Question(5, "Question 5", ["A", "B", "C"]),
+      new Question(6, "Question 6", ["A", "B", "C"]),
+      new Question(7, "Question 7", ["A", "B", "C"]),
+      new Question(8, "Question 8", ["A", "B", "C"]),
+      new Question(9, "Question 9", ["A", "B", "C"]),
+      new Question(10, "Question 10", ["A", "B", "C"])
+    ];
   }
 
   ngOnInit() {
@@ -32,6 +46,10 @@ export class IntroComponent implements OnInit {
     player.charisma += 2;
     player.intelligence -= 1;
     player.strength -= 1;
+  }
+
+  nextQuestion(questionIncrementer) {
+    this.questionIncrementer += 1;
   }
 
 }

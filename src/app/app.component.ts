@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Character } from './character.model';
+import { Character } from './models/character.model';
 import { IntroComponent } from './intro/intro.component';
 
 @Component({
@@ -8,5 +8,5 @@ import { IntroComponent } from './intro/intro.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  
+
 }
