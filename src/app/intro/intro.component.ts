@@ -30,16 +30,6 @@ export class IntroComponent implements OnInit {
     console.log(this.player);
   }
 
-  shuffle(array) {
-    var j, x, i;
-    for (i = array.length; i; i--) {
-        j = Math.floor(Math.random() * i);
-        x = array[i - 1];
-        array[i - 1] = array[j];
-        array[j] = x;
-    }
-  }
-
   yesQues(player) {
     player.intelligence += 2;
     console.log(this.player);

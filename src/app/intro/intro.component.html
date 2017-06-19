@@ -10,9 +10,6 @@
         <li id="{{question.id}}"><h3>{{question.question}}</h3>
           <ul class="answers">
             <li *ngFor="let answer of question.answers" (click)="updateStats(player, answer.str, answer.int, answer.char); nextQuestion(questionIncrementer)">{{answer.answer}}</li>
-            <!-- <li (click)="addStr(player); nextQuestion(questionIncrementer)">{{question.answers[0]}}</li>
-            <li (click)="addInt(player); nextQuestion(questionIncrementer)">{{question.answers[1]}}</li>
-            <li (click)="addChar(player); nextQuestion(questionIncrementer)">{{question.answers[2]}}</li> -->
           </ul>
         </li>
       </div>
