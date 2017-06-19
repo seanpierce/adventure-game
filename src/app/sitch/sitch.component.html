@@ -1,1 +1,9 @@
-{{scenario.text}}
+<div >
+  {{scenario.text}}
+  <button (click)="makeChoice(choice)" *ngFor="let choice of choices">{{choice.text}}</button>
+</div>
+
+<div [innerHtml]="responseText"></div>
+<div *ngIf="decisionId">
+  <button routerLink="/sitch/{{decisionId}}">Continue</button>
+</div>

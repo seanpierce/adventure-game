@@ -19,11 +19,26 @@ export class SitchComponent implements OnInit {
     private location: Location
   ) { }
 
-  scenarioId;
   scenario;
+  choices = [];
+  decisionId;
+  responseText;
+
   ngOnInit() {
     this.route.params.forEach((params) => {
-      this.scenario = this.gameService.findScenario(parseInt(params['id']));
+      this.scenario = this.gameService.findScenario(params['id']);
     })
+    this.choices = this.gameService.allChoices();
+  }
+
+  makeChoice(choice){
+    this.decisionId = "";
+    if (Math.random() >= 0.5){
+      this.responseText = choice.sText;
+      this.decisionId = choice.sId;
+    } else {
+      this.responseText = choice.fText;
+      this.decisionId = choice.fId;
+    }
   }
 }

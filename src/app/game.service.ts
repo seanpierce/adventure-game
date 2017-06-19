@@ -19,4 +19,8 @@ export class GameService {
       }
     }
   }
+  
+  allChoices() {
+    return DB.choice;
+  }
 }
