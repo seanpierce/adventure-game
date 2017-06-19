@@ -7,14 +7,16 @@ import { HttpModule } from '@angular/http';
 import { routing } from './app.routing';
 
 import { AppComponent } from './app.component';
-import { ScenarioComponent } from './scenario/scenario.component';
+import { ScenariosComponent } from './scenarios/scenarios.component';
 import { AdminComponent } from './admin/admin.component';
+import { SitchComponent } from './sitch/sitch.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ScenarioComponent,
-    AdminComponent
+    ScenariosComponent,
+    AdminComponent,
+    SitchComponent
   ],
   imports: [
     BrowserModule,

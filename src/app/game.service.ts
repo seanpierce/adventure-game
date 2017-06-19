@@ -11,4 +11,12 @@ export class GameService {
     return DB.scenario;
   }
 
+  findScenario(id){
+    for(let i=0; i < DB.scenario.length; i++){
+      if(DB.scenario[i].id === id){
+        // console.log(DB.scenario[i]);
+        return DB.scenario[i];
+      }
+    }
+  }
 }

@@ -3,7 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 // components
 import { AdminComponent } from './admin/admin.component';
-import { ScenarioComponent } from './scenario/scenario.component';
+import { ScenariosComponent } from './scenarios/scenarios.component';
+import { SitchComponent } from './sitch/sitch.component';
 
 const appRoutes: Routes = [
   {
@@ -12,7 +13,11 @@ const appRoutes: Routes = [
   },
   {
     path: 'scenarios',
-    component: ScenarioComponent
+    component: ScenariosComponent
+  },
+  {
+    path: 'sitch/:id',
+    component: SitchComponent
   }
 ];
 
