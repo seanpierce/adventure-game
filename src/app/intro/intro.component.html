@@ -18,3 +18,9 @@
     </div>
   </div>
 </ul>
+
+<div *ngIf="questionIncrementer > questions.length">
+  <h3>Are you ready to wake up?</h3>
+  <span class="continue" (click)="yesQues(player)" >Yes</span><br>
+  <span class="continue" (click)="noQues(player)" >No</span>
+</div>
