@@ -1,1 +1,6 @@
 <h3 *ngFor="let scenario of scenarios">{{scenario.text}}</h3>
+<div *ngFor="let choice of choices">
+  <h3>{{choice.text}}</h3>
+  <p><strong>success</strong> {{choice.sId}}: {{choice.sText}}</p>
+  <p><strong>fail</strong> {{choice.fId}}: {{choice.fText}}</p>
+</div>
