@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 // components
 import { AdminComponent } from './admin/admin.component';
 import { SceneComponent } from './scene/scene.component';
+import { EditorComponent } from './editor/editor.component';
 
 const appRoutes: Routes = [
   {
@@ -13,6 +14,10 @@ const appRoutes: Routes = [
   {
     path: 'scene/:id',
     component: SceneComponent
+  },
+  {
+    path: 'editor',
+    component: EditorComponent
   }
 ];
 

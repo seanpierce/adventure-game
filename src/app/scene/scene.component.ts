@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
-import { Scenario } from '../scenario.model';
 import { GameService } from '../game.service';
 
 @Component({
@@ -19,16 +18,15 @@ export class SceneComponent implements OnInit {
     private location: Location
   ) { }
 
-  scenario;
-  choices = [];
+  scene;
   decisionId;
   responseText;
 
   ngOnInit() {
-    this.route.params.forEach((params) => {
-      this.scenario = this.gameService.findScenario(params['id']);
-    })
-    this.choices = this.gameService.allChoices();
+    this.scene = this.gameService.findScene('0');
+
+    this.scene.choices = ["yep","nope"];
+    // this.choices = this.gameService.allChoices();
   }
 
   makeChoice(choice){

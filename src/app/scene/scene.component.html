@@ -1,6 +1,6 @@
-<div >
-  {{scenario.text}}
-  <button (click)="makeChoice(choice)" *ngFor="let choice of choices">{{choice.text}}</button>
+<div>
+  {{scene.text}}
+  <button (click)="makeChoice(choice)" *ngFor="let choice of scene.choices">{{choice}}</button>
 </div>
 
 <div [innerHtml]="responseText"></div>

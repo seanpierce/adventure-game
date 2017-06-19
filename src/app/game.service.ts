@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Scenario } from './scenario.model';
+import { Scene } from './scene.model';
 import { DB } from './static-db';
 
 @Injectable()
@@ -7,20 +7,15 @@ export class GameService {
 
   constructor() {}
 
-  allScenarios() {
-    return DB.scenario;
-  }
-
-  findScenario(id){
-    for(let i=0; i < DB.scenario.length; i++){
-      if(DB.scenario[i].id === id){
-        // console.log(DB.scenario[i]);
-        return DB.scenario[i];
+  findScene(id){
+    for(let i=0; i < DB.scene.length; i++){
+      if(DB.scene[i].id === id){
+        return DB.scene[i];
       }
     }
   }
-  
-  allChoices() {
-    return DB.choice;
+
+  allScenes() {
+    return DB.scene;
   }
 }

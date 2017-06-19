@@ -7,14 +7,16 @@ import { HttpModule } from '@angular/http';
 import { routing } from './app.routing';
 
 import { AppComponent } from './app.component';
-import { AdminComponent } from './admin/admin.component';
 import { SceneComponent } from './scene/scene.component';
+import { AdminComponent } from './admin/admin.component';
+import { EditorComponent } from './editor/editor.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    SceneComponent,
     AdminComponent,
-    SceneComponent
+    EditorComponent
   ],
   imports: [
     BrowserModule,
