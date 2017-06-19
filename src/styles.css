@@ -1,1 +1,54 @@
 /* You can add global styles to this file, and also import other style files */
+/*html {
+  background-color: blue;
+}*/
+body {
+  animation: throb 10s infinite linear;
+  padding: 3em 0;
+}
+
+/* ------------------------ animations ------------------------*/
+/* ------------------------ animations ------------------------*/
+/* ------------------------ animations ------------------------*/
+
+.throb {
+  animation: throb 10s infinite ease-both;
+}
+@keyframes throb {
+  0% {
+    background-color: rgb(0, 0, 0);
+  }
+  10% {
+    background-color: rgb(9, 9, 9);
+  }
+  11% {
+    background-color: rgb(0, 0, 0);
+  }
+  45% {
+    background-color: rgb(0, 0, 0);
+  }
+  50% {
+    background-color: rgb(7, 7, 7);
+  }
+  55% {
+    background-color: rgb(0, 0, 0);
+  }
+  70% {
+    background-color: rgb(0, 0, 0);
+  }
+  72% {
+    background-color: rgb(25, 25, 25);
+  }
+  74% {
+    background-color: rgb(0, 0, 0);
+  }
+  89% {
+    background-color: rgb(0, 0, 0);
+  }
+  95% {
+    background-color: rgb(4, 4, 4);
+  }
+  100% {
+    background-color: rgb(0, 0, 0);
+  };
+}

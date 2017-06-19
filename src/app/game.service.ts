@@ -7,8 +7,15 @@ export class GameService {
 
   constructor() {}
 
+  findScene(id){
+    for(let i=0; i < DB.scene.length; i++){
+      if(DB.scene[i].id === id){
+        return DB.scene[i];
+      }
+    }
+  }
+
   allScenes() {
     return DB.scene;
   }
-
 }
