@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Scene } from './scene.model';
+import { Scenario } from './scenario.model';
 import { DB } from './static-db';
 
 @Injectable()
@@ -7,7 +7,6 @@ export class GameService {
 
   constructor() {}
 
-<<<<<<< HEAD
   allScenarios() {
     return DB.scenario;
   }
@@ -23,9 +22,5 @@ export class GameService {
   
   allChoices() {
     return DB.choice;
-=======
-  allScenes() {
-    return DB.scene;
->>>>>>> d3d4e40d51b21238bab283cf895d5e54638a0484
   }
 }
