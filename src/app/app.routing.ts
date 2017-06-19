@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 // components
 import { AdminComponent } from './admin/admin.component';
 import { ScenariosComponent } from './scenarios/scenarios.component';
-import { SitchComponent } from './sitch/sitch.component';
+import { SceneComponent } from './scene/scene.component';
 
 const appRoutes: Routes = [
   {
@@ -16,8 +16,8 @@ const appRoutes: Routes = [
     component: ScenariosComponent
   },
   {
-    path: 'sitch/:id',
-    component: SitchComponent
+    path: 'scene/:id',
+    component: SceneComponent
   }
 ];
 

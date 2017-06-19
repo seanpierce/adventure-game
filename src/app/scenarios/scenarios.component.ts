@@ -18,8 +18,8 @@ export class ScenariosComponent implements OnInit {
     this.scenarios = this.gameService.allScenarios();
   }
 
-  goToSitch(scenario) {
-    this.router.navigate(['sitch', scenario.id]);
+  goToScene(scenario) {
+    this.router.navigate(['scene', scenario.id]);
   }
 
 }

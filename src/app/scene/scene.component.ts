@@ -5,13 +5,13 @@ import { Scenario } from '../scenario.model';
 import { GameService } from '../game.service';
 
 @Component({
-  selector: 'app-sitch',
-  templateUrl: './sitch.component.html',
-  styleUrls: ['./sitch.component.css'],
+  selector: 'app-scene',
+  templateUrl: './scene.component.html',
+  styleUrls: ['./scene.component.css'],
   providers: [GameService]
 })
 
-export class SitchComponent implements OnInit {
+export class SceneComponent implements OnInit {
 
   constructor(
     private gameService: GameService,

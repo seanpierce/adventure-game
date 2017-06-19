@@ -9,14 +9,14 @@ import { routing } from './app.routing';
 import { AppComponent } from './app.component';
 import { ScenariosComponent } from './scenarios/scenarios.component';
 import { AdminComponent } from './admin/admin.component';
-import { SitchComponent } from './sitch/sitch.component';
+import { SceneComponent } from './scene/scene.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ScenariosComponent,
     AdminComponent,
-    SitchComponent
+    SceneComponent
   ],
   imports: [
     BrowserModule,
