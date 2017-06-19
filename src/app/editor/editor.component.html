@@ -2,14 +2,16 @@
 
 <div id="new-scene">
   <h2>ADD SCENE</h2>
+  <label>title:</label>
+  <input #title type="text"><br>
   <label>text: </label><br>
   <textarea #text rows="8" cols="80"></textarea>
-  <button (click)="addScene(text.value); text.value=''" type="button">add scene</button>
+  <button (click)="addScene(title.value, text.value); text.value=''; title.value=''" type="button">add scene</button>
 </div>
 
 <h2>SCENES</h2>
 <div class="scene" *ngFor="let scene of scenes">
-  <h3>Scene {{scene.id}}</h3>
+  <h3>{{scene.id}} - {{scene.title}}</h3>
   <p>{{scene.text}}</p>
 
   <div *ngIf="scene.choices.length > 0">

@@ -18,8 +18,8 @@ export class EditorComponent implements OnInit {
     this.scenes = this.gameService.allScenes();
   }
 
-  addScene(text: string){
-    let newScene = new Scene(this.scenes.length.toString(), text || 'default value');
+  addScene(title: string, text: string){
+    let newScene = new Scene(this.scenes.length.toString(),title || 'default title', text || 'default value');
     this.scenes.push(newScene);
   }
 

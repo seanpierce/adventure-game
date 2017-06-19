@@ -1,4 +1,4 @@
 export class Scene {
   choices = [];
-  constructor(public id: string, public text: string) {}
+  constructor(public id: string, public title: string, public text: string) {}
 }
