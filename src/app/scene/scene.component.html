@@ -1,1 +1,9 @@
-<h3 *ngFor="let scene of scenes">{{scene.text}}</h3>
+<div>
+  {{scene.text}}
+  <button (click)="makeChoice(choice)" *ngFor="let choice of scene.choices">{{choice}}</button>
+</div>
+
+<div [innerHtml]="responseText"></div>
+<div *ngIf="decisionId">
+  <button routerLink="/scene/{{decisionId}}">Continue</button>
+</div>

@@ -12,7 +12,7 @@ const appRoutes: Routes = [
     component: AdminComponent
   },
   {
-    path: 'scenes',
+    path: 'scene/:id',
     component: SceneComponent
   },
   {
