@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 // components
 import { AdminComponent } from './admin/admin.component';
-import { ScenarioComponent } from './scenario/scenario.component';
+import { SceneComponent } from './scene/scene.component';
 import { EditorComponent } from './editor/editor.component';
 
 const appRoutes: Routes = [
@@ -12,8 +12,8 @@ const appRoutes: Routes = [
     component: AdminComponent
   },
   {
-    path: 'scenarios',
-    component: ScenarioComponent
+    path: 'scenes',
+    component: SceneComponent
   },
   {
     path: 'editor',
