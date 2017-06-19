@@ -6,13 +6,11 @@ import { Character } from './models/character.model';
 
 import { AppComponent } from './app.component';
 import { IntroComponent } from './intro/intro.component';
-import { QuestionListComponent } from './intro/question-list/question-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    IntroComponent,
-    QuestionListComponent
+    IntroComponent
   ],
   imports: [
     BrowserModule,
