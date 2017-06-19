@@ -12,11 +12,9 @@ export class ScenarioComponent implements OnInit {
 
   constructor(private gameService: GameService) { }
   scenarios = [];
-  choices = [];
 
   ngOnInit() {
     this.scenarios = this.gameService.allScenarios();
-    this.choices = this.gameService.allChoices();
   }
 
 }
