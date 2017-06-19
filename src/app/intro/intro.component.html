@@ -1,6 +1,96 @@
-<h3>Character stats</h3>
-<ul>
-  <li>Strength: {{player.strength}}</li>
-  <li>Intelligence: {{player.intelligence}}</li>
-  <li>Charisma: {{player.charisma}}</li>
-</ul>
+
+  <h3>Character stats</h3>
+  <ul>
+    <li>Strength: {{player.strength}}</li>
+    <li>Intelligence: {{player.intelligence}}</li>
+    <li>Charisma: {{player.charisma}}</li>
+  </ul>
+
+  <hr>
+
+  <h2>Intro Questions</h2>
+
+  <ul>
+
+    <li *ngIf="question1">Q: Who are you?
+      <ul>
+        <li (click)="addInt(player); question1=false; question2=true">A: I'm... me. Whoever that is.</li>
+        <li (click)="addChar(player); question1=false; question2=true">A: I'm me. Who I am.</li>
+        <li (click)="addStr(player); question1=false; question2=true">A: I was hoping you could tell me...</li>
+      </ul>
+    </li>
+
+    <li *ngIf="question2">Q: Why are you here?
+      <ul>
+        <li (click)="addInt(player); question2=false; question3=true">A: How would I know? That's a question for our creator.</li>
+        <li (click)="addChar(player); question2=false; question3=true">A: It feels like a dream.</li>
+        <li (click)="addStr(player); question2=false; question3=true">A: To find meaning to being.</li>
+      </ul>
+    </li>
+
+    <li *ngIf="question3">Q: Question 3?
+      <ul>
+        <li (click)="addInt(player); question3=false; question4=true">A: intelligence answer.</li>
+        <li (click)="addChar(player); question3=false; question4=true">A: charisma answer.</li>
+        <li (click)="addStr(player); question3=false; question4=true">A: strength answer.</li>
+      </ul>
+    </li>
+
+    <li *ngIf="question4">Q: Who are you 4?
+      <ul>
+        <li (click)="addInt(player); question4=false; question5=true">A: I'm... me. Whoever that is.</li>
+        <li (click)="addChar(player); question4=false; question5=true">A: I'm me. Who I am.</li>
+        <li (click)="addStr(player); question4=false; question5=true">A: I was hoping you could tell me...</li>
+      </ul>
+    </li>
+
+    <li *ngIf="question5">Q: Why are you here? 5
+      <ul>
+        <li (click)="addInt(player); question5=false; question6=true">A: How would I know? That's a question for our creator.</li>
+        <li (click)="addChar(player); question5=false; question6=true">A: It feels like a dream.</li>
+        <li (click)="addStr(player); question5=false; question6=true">A: To find meaning to being.</li>
+      </ul>
+    </li>
+
+    <li *ngIf="question6">Q: Question 6?
+      <ul>
+        <li (click)="addInt(player); question6=false; question7=true">A: intelligence answer.</li>
+        <li (click)="addChar(player); question6=false; question7=true">A: charisma answer.</li>
+        <li (click)="addStr(player); question6=false; question7=true">A: strength answer.</li>
+      </ul>
+    </li>
+
+    <li *ngIf="question7">Q: Question 7?
+      <ul>
+        <li (click)="addInt(player); question7=false; question8=true">A: intelligence answer.</li>
+        <li (click)="addChar(player); question7=false; question8=true">A: charisma answer.</li>
+        <li (click)="addStr(player); question7=false; question8=true">A: strength answer.</li>
+      </ul>
+    </li>
+
+    <li *ngIf="question8">Q: Who are you 8?
+      <ul>
+        <li (click)="addInt(player); question8=false; question9=true">A: I'm... me. Whoever that is.</li>
+        <li (click)="addChar(player); question8=false; question9=true">A: I'm me. Who I am.</li>
+        <li (click)="addStr(player); question8=false; question9=true">A: I was hoping you could tell me...</li>
+      </ul>
+    </li>
+
+    <li *ngIf="question9">Q: Why are you here9?
+      <ul>
+        <li (click)="addInt(player); question9=false; question10=true">A: How would I know? That's a question for our creator.</li>
+        <li (click)="addChar(player); question9=false; question10=true">A: It feels like a dream.</li>
+        <li (click)="addStr(player); question9=false; question10=true">A: To find meaning to being.</li>
+      </ul>
+    </li>
+
+    <li *ngIf="question10">Q: Question 10?
+      <ul>
+        <li (click)="addInt(player); question10=false; finished=true">A: intelligence answer.</li>
+        <li (click)="addChar(player); question10=false; finished=true">A: charisma answer.</li>
+        <li (click)="addStr(player); question10=false; finished=true">A: strength answer.</li>
+      </ul>
+    </li>
+
+
+  </ul>
