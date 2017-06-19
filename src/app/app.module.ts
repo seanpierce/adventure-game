@@ -7,16 +7,28 @@ import { HttpModule } from '@angular/http';
 import { routing } from './app.routing';
 
 import { AppComponent } from './app.component';
+<<<<<<< HEAD
 import { ScenariosComponent } from './scenarios/scenarios.component';
 import { AdminComponent } from './admin/admin.component';
 import { SceneComponent } from './scene/scene.component';
+=======
+import { SceneComponent } from './scene/scene.component';
+import { AdminComponent } from './admin/admin.component';
+import { EditorComponent } from './editor/editor.component';
+>>>>>>> d3d4e40d51b21238bab283cf895d5e54638a0484
 
 @NgModule({
   declarations: [
     AppComponent,
+<<<<<<< HEAD
     ScenariosComponent,
     AdminComponent,
     SceneComponent
+=======
+    SceneComponent,
+    AdminComponent,
+    EditorComponent
+>>>>>>> d3d4e40d51b21238bab283cf895d5e54638a0484
   ],
   imports: [
     BrowserModule,
