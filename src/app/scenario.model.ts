@@ -1,4 +1,4 @@
 export class Scenario {
-  choices: string[];
-  constructor(public text: string) {}
+  choices = [];
+  constructor(public id: string, public text: string) {}
 }

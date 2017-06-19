@@ -11,8 +11,4 @@ export class GameService {
     return DB.scenario;
   }
 
-  allChoices() {
-    return DB.choice;
-  }
-
 }
