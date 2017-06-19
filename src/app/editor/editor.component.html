@@ -1,22 +1,22 @@
 <h1>EDITOR</h1>
 
-<div id="new-scenario">
-  <h2>ADD SCENARIO</h2>
+<div id="new-scene">
+  <h2>ADD SCENE</h2>
   <label>text: </label><br>
   <textarea #text rows="8" cols="80"></textarea>
-  <button (click)="addScenario(text.value); text.value=''" type="button">add scenario</button>
+  <button (click)="addScene(text.value); text.value=''" type="button">add scene</button>
 </div>
 
-<h2>SCENARIOS</h2>
-<div class="scenario" *ngFor="let scenario of scenarios">
-  <h3>Scenario {{scenario.id}}</h3>
-  <p>{{scenario.text}}</p>
+<h2>SCENES</h2>
+<div class="scene" *ngFor="let scene of scenes">
+  <h3>Scene {{scene.id}}</h3>
+  <p>{{scene.text}}</p>
 
-  <div *ngIf="scenario.choices.length > 0">
+  <div *ngIf="scene.choices.length > 0">
     <hr>
     <h3>choices:</h3>
     <ul>
-      <li *ngFor="let choice of scenario.choices">{{choice.text}}</li>
+      <li *ngFor="let choice of scene.choices">{{choice.text}}</li>
     </ul>
   </div>
 
@@ -27,19 +27,19 @@
   <label><strong>success</strong></label><br>
   <label>text:</label>
   <input #success type="text">
-  <label>scenario</label>
+  <label>scene</label>
   <select #successChoice>
-    <option *ngFor="let scenario of scenarios" value="">{{scenario.id}}</option>
+    <option *ngFor="let scene of scenes" value="">{{scene.id}}</option>
   </select><br>
   <label><strong>failure</strong></label><br>
   <label>text:</label>
   <input #fail type="text">
-  <label>scenario</label>
+  <label>scene</label>
   <select #failChoice>
-    <option *ngFor="let scenario of scenarios" value="">{{scenario.id}}</option>
+    <option *ngFor="let scene of scenes" value="">{{scene.id}}</option>
   </select>
   <button (click)="addChoice({
-    scenario: scenario.id,
+    scene: scene.id,
     text: cText.value,
     success: success.value,
     successId: successChoice.selectedOptions[0].text,

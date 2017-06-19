@@ -7,14 +7,14 @@ import { HttpModule } from '@angular/http';
 import { routing } from './app.routing';
 
 import { AppComponent } from './app.component';
-import { ScenarioComponent } from './scenario/scenario.component';
+import { SceneComponent } from './scene/scene.component';
 import { AdminComponent } from './admin/admin.component';
 import { EditorComponent } from './editor/editor.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ScenarioComponent,
+    SceneComponent,
     AdminComponent,
     EditorComponent
   ],

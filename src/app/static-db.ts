@@ -1,9 +1,9 @@
-import { Scenario } from './scenario.model';
+import { Scene } from './scene.model';
 
 export const DB = {
   // character: [],
-  scenario: [
-    new Scenario("0", "THIS IS A SCENARIO, YOU ARE IN IT. DAD"),
-    new Scenario("1", "THIS IS A SCENARIO, YOU ARE IN IT. DAD2.0")
+  scene: [
+    new Scene("0", "THIS IS A SCENE(ARIO), YOU ARE IN IT. DAD"),
+    new Scene("1", "THIS IS A SCENE(ARIO), YOU ARE IN IT. DAD2.0")
   ]
 }

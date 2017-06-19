@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GameService } from '../game.service';
-import { Scenario } from '../scenario.model';
+import { Scene } from '../scene.model';
 
 @Component({
   selector: 'app-editor',
@@ -10,25 +10,25 @@ import { Scenario } from '../scenario.model';
 })
 
 export class EditorComponent implements OnInit {
-  scenarios: Scenario[];
+  scenes: Scene[];
 
   constructor(private gameService: GameService){}
 
   ngOnInit() {
-    this.scenarios = this.gameService.allScenarios();
+    this.scenes = this.gameService.allScenes();
   }
 
-  addScenario(text: string){
-    let newScenario = new Scenario(this.scenarios.length.toString(), text || 'default value');
-    this.scenarios.push(newScenario);
+  addScene(text: string){
+    let newScene = new Scene(this.scenes.length.toString(), text || 'default value');
+    this.scenes.push(newScene);
   }
 
   addChoice(params){
-    let index = this.scenarios.findIndex(function(f){
-      return f.id === params.scenario;
+    let index = this.scenes.findIndex(function(f){
+      return f.id === params.scene;
     });
 
-    this.scenarios[index].choices.push({
+    this.scenes[index].choices.push({
       text: params.text || 'default choice',
       success: {
         text: params.success || 'default success text',
