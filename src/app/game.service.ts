@@ -12,15 +12,30 @@ export class GameService {
     this.scenes = database.list('scenes');
   }
 
-  findScene(id){
-    // for(let i=0; i < DB.scene.length; i++){
-    //   if(DB.scene[i].id === id){
-    //     return DB.scene[i];
-    //   }
-    // }
+  getSceneById(id){
+    return this.database.object('scenes/' + id);
   }
 
   allScenes() {
     return this.scenes;
+  }
+
+  addScene(scene: Scene){
+    this.scenes.push(scene);
+  }
+
+  updateScene(localScene){
+    let dbScene = this.getSceneById(localScene.$key);
+    dbScene.update({
+      title: localScene.title,
+      text: localScene.text
+    })
+  }
+
+  addChoice(localScene){
+    let dbScene = this.getSceneById(localScene.$key)
+    dbScene.update({
+      choices: localScene.choices
+    })
   }
 }

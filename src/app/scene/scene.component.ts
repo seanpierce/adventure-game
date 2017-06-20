@@ -23,7 +23,7 @@ export class SceneComponent implements OnInit {
   responseText;
 
   ngOnInit() {
-    this.scene = this.gameService.findScene('0');
+    this.scene = this.gameService.getSceneById('0');
 
     this.scene.choices = ["yep","nope"];
     // this.choices = this.gameService.allChoices();
