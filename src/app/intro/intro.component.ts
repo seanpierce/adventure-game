@@ -27,7 +27,6 @@ export class IntroComponent implements OnInit {
     player.strength += str;
     player.intelligence += int;
     player.charisma += char;
-    console.log(this.player);
   }
 
   yesQues(player) {
@@ -35,8 +34,6 @@ export class IntroComponent implements OnInit {
       this.router.navigate(['/scene/0']);
     }, 2000);
     player.intelligence += 2;
-    console.log(this.player);
-
   }
 
   noQues(player) {
