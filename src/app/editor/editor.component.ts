@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GameService } from '../game.service';
-import { Scene } from '../scene.model';
+import { Scene } from '../models/scene.model';
+import { FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'app-editor',
@@ -10,7 +11,7 @@ import { Scene } from '../scene.model';
 })
 
 export class EditorComponent implements OnInit {
-  scenes: Scene[];
+  scenes: FirebaseListObservable<any[]>;
 
   constructor(private gameService: GameService){}
 
@@ -19,14 +20,15 @@ export class EditorComponent implements OnInit {
   }
 
   addScene(title: string, text: string){
-    let newScene = new Scene(this.scenes.length.toString(),title || 'default title', text || 'default value');
+    let newScene = new Scene("0",title || 'default title', text || 'default value');
     this.scenes.push(newScene);
   }
 
   addChoice(params){
-    let index = this.scenes.findIndex(function(f){
-      return f.id === params.scene;
-    });
+    let index = "0";
+    // let index = this.scenes.findIndex(function(f){
+    //   return f.id === params.scene;
+    // });
 
     this.scenes[index].choices.push({
       text: params.text || 'default choice',
