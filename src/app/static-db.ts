@@ -1,4 +1,4 @@
-import { Scene } from './scene.model';
+import { Scene } from './models/scene.model';
 
 export const DB = {
   // character: [],
