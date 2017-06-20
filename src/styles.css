@@ -11,14 +11,22 @@
   width: 100%;
   height: 100%;
   animation: throb 10s infinite linear;
+  color: white;
 }
 .animation-container .user-action {
-  font-size: 0.9em;
   cursor: pointer;
   display: block;
+  width: auto;
 }
 .animation-container .user-action:hover {
   color: yellow;
+}
+.animation-container .choices {
+  list-style: none;
+  padding: 0;
+}
+.animation-container .choices li {
+  margin-bottom: 0.35em;
 }
 
 /* ------------------------ animations ------------------------*/

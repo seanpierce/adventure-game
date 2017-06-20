@@ -1,24 +1,23 @@
-<div *ngIf="showQuestions != true">
-  <h3>You become aware. You can't recognize where you are. A voice echoes inside your head, persistent questions.</h3>
-  <span (click)="showQuestions = true" class="continue">continue</span>
-</div>
+<div class="animation-container">
+  <div *ngIf="showQuestions != true">
+    <h3>You become aware. You can't recognize where you are. A voice echoes inside your head, persistent questions.</h3>
+    <span (click)="showQuestions = true" class="continue user-action">Continue</span>
+  </div>
 
-<ul>
   <div *ngIf="showQuestions">
     <div *ngFor="let question of questions">
       <div *ngIf="question.id === questionIncrementer">
-        <li id="{{question.id}}"><h3>{{question.question}}</h3>
-          <ul class="answers">
-            <li *ngFor="let answer of question.answers" (click)="updateStats(player, answer.str, answer.int, answer.char); nextQuestion(questionIncrementer)">{{answer.answer}}</li>
+        <h3 id="{{question.id}}">{{question.question}}</h3>
+          <ul class="choices">
+            <li *ngFor="let answer of question.answers" (click)="updateStats(player, answer.str, answer.int, answer.char); nextQuestion(questionIncrementer)" class="user-action">{{answer.answer}}</li>
           </ul>
-        </li>
       </div>
     </div>
   </div>
-</ul>
 
-<div *ngIf="questionIncrementer > questions.length">
-  <h3>Are you ready to wake up?</h3>
-  <span class="continue" (click)="yesQues(player)">Yes</span><br>
-  <span class="continue" (click)="noQues(player)">No</span>
+  <div *ngIf="questionIncrementer > questions.length">
+    <h3>Are you ready to wake up?</h3>
+    <span routerLink="/scene/0" class="continue user-action" (click)="yesQues(player)">Yes</span>
+    <span routerLink="/scene/0" class="continue user-action" (click)="noQues(player)">No</span>
+  </div>
 </div>
