@@ -7,9 +7,15 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 @Injectable()
 export class GameService {
   scenes: FirebaseListObservable<any[]>;
+  characters: FirebaseListObservable<any[]>
 
   constructor(private database: AngularFireDatabase) {
     this.scenes = database.list('scenes');
+    this.characters = database.list('characters');
+  }
+
+  allCharacters(){
+    return this.characters;
   }
 
   getSceneById(id){
@@ -37,6 +43,10 @@ export class GameService {
     dbScene.update({
       choices: localScene.choices
     })
+  }
+
+  saveCharacter(character) {
+    this.characters.push(character);
   }
 
 }
