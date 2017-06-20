@@ -19,19 +19,19 @@
 <input #success type="text">
 <label>scene</label>
 <select #successChoice>
-  <option *ngFor="let scene of scenes | async" value="">{{scene.title}}</option>
+  <option *ngFor="let scene of scenes | async" value="{{scene.$key}}">{{scene.title}}</option>
 </select><br>
 <label><strong>failure</strong></label><br>
 <label>text:</label>
 <input #fail type="text">
 <label>scene</label>
 <select #failChoice>
-  <option *ngFor="let scene of scenes | async" value="">{{scene.title}}</option>
+  <option *ngFor="let scene of scenes | async" value="{{scene.$key}}">{{scene.title}}</option>
 </select>
 <button (click)="addChoice({
   text: cText.value,
   success: success.value,
-  successId: successChoice.selectedOptions[0].text,
+  successId: successChoice.selectedOptions[0].value,
   fail: fail.value,
-  failId: failChoice.selectedOptions[0].text
+  failId: failChoice.selectedOptions[0].value
 })" type="button">add choice</button>
