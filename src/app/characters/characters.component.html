@@ -1,0 +1,11 @@
+<div *ngFor="let character of characters | async">
+  <h3>{{character.name}}</h3>
+  <ul>
+    <li>Id: {{character.$key}}</li>
+    <li>Strength: {{character.strength}}</li>
+    <li>Intelligence: {{character.intelligence}}</li>
+    <li>Charisma: {{character.charisma}}</li>
+    <li>Current Scene: {{character.currentScene}}</li>
+  </ul>
+  <hr>
+</div>

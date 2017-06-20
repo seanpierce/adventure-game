@@ -18,6 +18,7 @@ import { SceneComponent } from './scene/scene.component';
 import { AdminComponent } from './admin/admin.component';
 import { EditorComponent } from './editor/editor.component';
 import { EditSceneComponent } from './edit-scene/edit-scene.component';
+import { CharactersComponent } from './characters/characters.component';
 
 // firebase credentials export
 export const firebaseConfig = {
@@ -34,7 +35,8 @@ export const firebaseConfig = {
     SceneComponent,
     AdminComponent,
     EditorComponent,
-    EditSceneComponent
+    EditSceneComponent,
+    CharactersComponent
   ],
   imports: [
     BrowserModule,
