@@ -5,17 +5,18 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 @Component({
   selector: 'app-characters',
   templateUrl: './characters.component.html',
-  styleUrls: ['./characters.component.css']
+  styleUrls: ['./characters.component.css'],
+  providers: [GameService]
 })
+
 export class CharactersComponent implements OnInit {
-
-  characters: FirebaseListObservable<any[]>
-
-  constructor(private database: AngularFireDatabase) {
-    this.characters = database.list('characters');
+  constructor(private gameService: GameService) {
   }
 
+  characters;
+
   ngOnInit() {
+    this.characters = this.gameService.allCharacters();
   }
 
 }
