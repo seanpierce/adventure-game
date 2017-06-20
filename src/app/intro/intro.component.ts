@@ -29,15 +29,7 @@ export class IntroComponent implements OnInit {
     player.charisma += char;
   }
 
-  yesQues(player) {
-    setTimeout(() => {
-      this.router.navigate(['/scene/0']);
-    }, 2000);
-    player.intelligence += 2;
-  }
-
-  noQues(player) {
-    player.charisma += 2;
+  startGame() {
     setTimeout(() => {
       this.router.navigate(['/scene/0']);
     }, 2000);

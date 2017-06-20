@@ -1,0 +1,8 @@
+.transitionEffect {
+  animation: transitionEffect 2s infinite ease-in-out;
+}
+@keyframes transitionEffect {
+  0% {background-color: black; color: black;}
+  90% {background-color: white; color: white;}
+  100% {background-color: black; color: black;}
+}

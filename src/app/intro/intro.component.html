@@ -17,7 +17,7 @@
 
     <div *ngIf="questionIncrementer > questions.length">
       <h3>Are you ready to wake up?</h3>
-      <span class="continue user-action" (click)="yesQues(player); transitionEffect = true">Yes</span>
-      <span class="continue user-action" (click)="noQues(player); transitionEffect = true">No</span>
+      <span class="continue user-action" (click)="updateStats(player, 0, 2, 0); transitionEffect=true; startGame();">Yes</span>
+      <span class="continue user-action" (click)="updateStats(player, 0, 0, 2); transitionEffect=true; startGame();">No</span>
     </div>
   </div>
