@@ -26,6 +26,10 @@ export class GameService {
     return this.scenes;
   }
 
+  getPlayerById(id){
+    return this.database.object('characters/' + id)
+  }
+
   addScene(scene: Scene){
     this.scenes.push(scene);
   }

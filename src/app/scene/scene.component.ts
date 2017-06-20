@@ -21,25 +21,29 @@ export class SceneComponent implements OnInit {
 
   dbScenes;
   currentScene;
-  decisionId;
-  responseText;
+  player;
 
   ngOnInit() {
+    let playerId;
+    this.route.params.forEach((urlParameters) => {
+      playerId = urlParameters['id']
+    });
+
     this.gameService.allScenes().subscribe(dataLastEmitted => {
       this.dbScenes = dataLastEmitted;
       // console.log(this.dbScenes)
     })
 
-    let id;
-    this.route.params.forEach((urlParameters) => {
-      id = urlParameters['id']
-    });
+    this.gameService.getPlayerById(playerId).subscribe(dataLastEmitted => {
+      this.player = dataLastEmitted;
 
-    this.gameService.getSceneById(id).subscribe(dataLastEmitted => {
-      console.log("onInit subscription triggered");
-      this.currentScene = dataLastEmitted;
-      this.currentScene.state = 'showing';
+      this.gameService.getSceneById(this.player.currentScene).subscribe(dataLastEmitted => {
+        this.currentScene = dataLastEmitted;
+        this.currentScene.state = 'showing';
+      })
     })
+
+
   }
 
   getSceneById(id){
