@@ -3,6 +3,7 @@ import { Character } from '../models/character.model';
 import { Question } from '../models/question.model';
 import { Answer } from '../models/answer.model';
 import { questions } from './questions';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-intro',
@@ -14,8 +15,7 @@ export class IntroComponent implements OnInit {
   player: Character;
   questions;
   questionIncrementer: number = 1;
-
-  constructor() {
+  constructor(private router: Router) {
     this.player = new Character(10, 10, 10);
     this.questions = questions;
   }
@@ -31,13 +31,19 @@ export class IntroComponent implements OnInit {
   }
 
   yesQues(player) {
+    setTimeout(() => {
+      this.router.navigate(['/scene/0']);
+    }, 2000);
     player.intelligence += 2;
     console.log(this.player);
+
   }
 
   noQues(player) {
     player.charisma += 2;
-    console.log(this.player);
+    setTimeout(() => {
+      this.router.navigate(['/scene/0']);
+    }, 2000);
   }
 
   nextQuestion(questionIncrementer) {

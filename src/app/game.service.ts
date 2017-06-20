@@ -13,7 +13,7 @@ export class GameService {
         id: "1"
       },
       fail: {
-        text: "You get to the gate, but you're butt hurt",
+        text: "You get to the gate, but you're butt hurt 🤔",
         id: "1"
       }
     },
@@ -24,7 +24,7 @@ export class GameService {
         id: "2"
       },
       fail: {
-        text: "You get to the Creek Bed, but you're butt hurt",
+        text: "You get to the Creek Bed, but you're butt hurt 🤔",
         id: "2"
       }
     });

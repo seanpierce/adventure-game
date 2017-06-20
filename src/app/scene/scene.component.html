@@ -7,7 +7,7 @@
   </div>
 
   <div *ngIf="decisionId">
-    <div [innerHtml]="responseText"></div>
+    <h3 [innerHtml]="responseText"></h3>
     <span (click)="hideScene = false; decisionId= '';" class="user-action" routerLink="/scene/{{decisionId}}">Continue</span>
   </div>
 </div>
