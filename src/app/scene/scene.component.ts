@@ -23,20 +23,20 @@ export class SceneComponent implements OnInit {
   responseText;
 
   ngOnInit() {
-    this.scene = this.gameService.getSceneById('0');
+    this.scene = this.gameService.getSceneById('-Kn5HfwdeyGD08eHUTnU');
 
-    this.scene.choices = ["yep","nope"];
+    // this.scene.choices = ["yep","nope"];
     // this.choices = this.gameService.allChoices();
   }
 
   makeChoice(choice){
     this.decisionId = "";
     if (Math.random() >= 0.5){
-      this.responseText = choice.sText;
-      this.decisionId = choice.sId;
+      this.responseText = choice.success.text;
+      this.decisionId = choice.success.id;
     } else {
-      this.responseText = choice.fText;
-      this.decisionId = choice.fId;
+      this.responseText = choice.fail.text;
+      this.decisionId = choice.fail.id;
     }
   }
 }

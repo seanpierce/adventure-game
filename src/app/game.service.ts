@@ -38,4 +38,5 @@ export class GameService {
       choices: localScene.choices
     })
   }
+
 }
