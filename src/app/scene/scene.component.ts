@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { GameService } from '../game.service';
 
@@ -15,16 +15,34 @@ export class SceneComponent implements OnInit {
   constructor(
     private gameService: GameService,
     private route: ActivatedRoute,
-    private location: Location
+    private location: Location,
+    private router: Router
   ) { }
 
+  sceneId;
   scene;
+  sceneData;
   decisionId;
   responseText;
 
   ngOnInit() {
-    this.scene = this.gameService.findScene('0');
-    // this.choices = this.gameService.allChoices();
+    let id;
+    this.route.params.forEach((urlParameters) => {
+      id = urlParameters['id']
+    });
+
+    this.gameService.getSceneById(id).subscribe(dataLastEmitted => {
+      console.log("onInit subscription triggered");
+      this.sceneData = dataLastEmitted;
+    })
+  }
+
+  nextScene(id){
+    // this.router.navigate(['scene', id]);
+    this.gameService.getSceneById(id).subscribe(dataLastEmitted => {
+      this.sceneData = dataLastEmitted;
+      console.log("nextScene subscription triggered");
+    })
   }
 
   makeChoice(choice){
