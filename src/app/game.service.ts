@@ -1,46 +1,42 @@
 import { Injectable } from '@angular/core';
 import { Scene } from './models/scene.model';
 import { DB } from './static-db';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+
 
 @Injectable()
 export class GameService {
+  scenes: FirebaseListObservable<any[]>;
 
-  constructor() {
-    this.findScene("0").choices.push({
-      text: "Go to Graveyard Gate",
-      success: {
-        text: "You get to the gate, no harm done",
-        id: "1"
-      },
-      fail: {
-        text: "You get to the gate, but you're butt hurt 🤔",
-        id: "1"
-      }
-    },
-    {
-      text: "Go to Creek Bed",
-      success: {
-        text: "You get to the Creek Bed, no harm done",
-        id: "2"
-      },
-      fail: {
-        text: "You get to the Creek Bed, but you're butt hurt 🤔",
-        id: "2"
-      }
-    });
+  constructor(private database: AngularFireDatabase) {
+    this.scenes = database.list('scenes');
   }
-  //CHOICE (text, success{text, id}, fail{text, id})
 
-  findScene(id){
-    for(let i=0; i < DB.scene.length; i++){
-      if(DB.scene[i].id === id){
-        return DB.scene[i];
-      }
-    }
+  getSceneById(id){
+    return this.database.object('scenes/' + id);
   }
 
   allScenes() {
-    return DB.scene;
+    return this.scenes;
+  }
+
+  addScene(scene: Scene){
+    this.scenes.push(scene);
+  }
+
+  updateScene(localScene){
+    let dbScene = this.getSceneById(localScene.$key);
+    dbScene.update({
+      title: localScene.title,
+      text: localScene.text
+    })
+  }
+
+  addChoice(localScene){
+    let dbScene = this.getSceneById(localScene.$key)
+    dbScene.update({
+      choices: localScene.choices
+    })
   }
 
 }

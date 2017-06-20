@@ -1,0 +1,15 @@
+{
+  "scenes": [{
+    "id": "0",
+    "title": "Graveyard Intro",
+    "text": "You arrive in a quiet field. Across a small creek lies a rusted iron gate. Behind it rows upon rows of ancient tombstones."
+    },{
+    "id": "1",
+    "title": "Graveyard Gate",
+    "text": "The gate creeks as you push it aside. Sunset is fading quickly as you enter the graveyard. You begin to feel a chill"
+    },{
+      "id": "2",
+      "title": "Creek bed",
+      "text": "On second thought, the graveyard sounds like a super bad idea. You follow the creek downstream. Walking into the sunset, with the graveyard at your back, the world feels a little brighter"
+    }]
+}
