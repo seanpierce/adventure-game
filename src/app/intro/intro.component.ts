@@ -39,7 +39,7 @@ export class IntroComponent implements OnInit {
   noQues(player) {
     player.charisma += 2;
     setTimeout(() => {
-      this.router.navigate(['/scene/0']);
+      this.router.navigate(['/scene/-Kn5HfwdeyGD08eHUTnU']);
     }, 2000);
   }
 
