@@ -24,7 +24,6 @@ export class EditSceneComponent implements OnInit {
   }
 
   addChoice(params){
-    console.log(params)
     if (!this.sceneData.choices) {
       this.sceneData.choices = [];
     }
