@@ -1,9 +1,11 @@
-<div>
-  {{scene.text}}
-  <button (click)="makeChoice(choice)" *ngFor="let choice of scene.choices">{{choice}}</button>
-</div>
+<div class="animation-container">
+  <div *ngIf="hideScene != true">
+    {{scene.text}}
+    <span class="user-action" (click)="makeChoice(choice); hideScene = true;" *ngFor="let choice of scene.choices">{{choice.text}}</span>
+  </div>
 
-<div [innerHtml]="responseText"></div>
-<div *ngIf="decisionId">
-  <button routerLink="/scene/{{decisionId}}">Continue</button>
+  <div *ngIf="decisionId">
+    <div [innerHtml]="responseText"></div>
+    <span (click)="hideScene = false; decisionId= '';" class="user-action" routerLink="/scene/{{decisionId}}">Continue</span>
+  </div>
 </div>

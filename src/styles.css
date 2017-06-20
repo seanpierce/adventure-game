@@ -2,9 +2,23 @@
 /*html {
   background-color: blue;
 }*/
-body {
+.animation-container {
+  font-size: 1.15em;
+  padding: 3em 1em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   animation: throb 10s infinite linear;
-  padding: 3em 0;
+}
+.animation-container .user-action {
+  font-size: 0.9em;
+  cursor: pointer;
+  display: block;
+}
+.animation-container .user-action:hover {
+  color: yellow;
 }
 
 /* ------------------------ animations ------------------------*/

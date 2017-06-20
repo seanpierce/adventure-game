@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GameService } from '../game.service';
-import { Scene } from '../scene.model';
+import { Scene } from '../models/scene.model';
 
 @Component({
   selector: 'app-editor',
