@@ -4,21 +4,25 @@ import { Question } from '../models/question.model';
 import { Answer } from '../models/answer.model';
 import { questions } from './questions';
 import { Router } from '@angular/router';
+import { GameService } from '../game.service';
+import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'app-intro',
   templateUrl: './intro.component.html',
-  styleUrls: ['./intro.component.css']
+  styleUrls: ['./intro.component.css'],
+  providers: [GameService]
 })
 export class IntroComponent implements OnInit {
 
-  player: Character;
+
+  player;
   questions;
   questionIncrementer: number = 1;
-  constructor(private router: Router) {
-    this.player = new Character("Fergie", 10, 10, 10, "Kn5HfwdeyGD08eHUTnU");
+  constructor(private router: Router, private gameService: GameService) {
+    this.player
     this.questions = questions;
-    console.log(this.player);
+
   }
 
   ngOnInit() {
@@ -30,14 +34,23 @@ export class IntroComponent implements OnInit {
     player.charisma += char;
   }
 
-  startGame() {
-    setTimeout(() => {
-      this.router.navigate(['/scene/-Kn5HfwdeyGD08eHUTnU']);
-    }, 2000);
+  startGame(player) {
+    this.gameService.saveCharacter(player);
+    this.gameService.allCharacters().subscribe(charData => {
+      let currentPlayer = charData.slice(-1)[0];
+      setTimeout(() => {
+        this.router.navigate([`/scene/${currentPlayer.currentScene}`]);
+      }, 2000);
+    });
+
   }
 
   nextQuestion(questionIncrementer) {
     this.questionIncrementer += 1;
+  }
+
+  createCharacter(name) {
+    this.player = new Character(name, 10, 10, 10, "-Kn5HfwdeyGD08eHUTnU");
   }
 
 }

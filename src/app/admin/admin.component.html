@@ -9,3 +9,6 @@
   <li><a routerLink="editor">editor</a></li>
   <li><a routerLink="intro">intro</a></li>
 </ul>
+
+<input #resume placeholder="Enter character id">
+<button (click)="collectId(resume.value)">Continue</button>

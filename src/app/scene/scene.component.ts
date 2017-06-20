@@ -32,7 +32,6 @@ export class SceneComponent implements OnInit {
     });
 
     this.gameService.getSceneById(id).subscribe(dataLastEmitted => {
-      console.log("onInit subscription triggered");
       this.sceneData = dataLastEmitted;
     })
   }
@@ -41,7 +40,6 @@ export class SceneComponent implements OnInit {
     // this.router.navigate(['scene', id]);
     this.gameService.getSceneById(id).subscribe(dataLastEmitted => {
       this.sceneData = dataLastEmitted;
-      console.log("nextScene subscription triggered");
     })
   }
 

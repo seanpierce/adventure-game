@@ -45,4 +45,8 @@ export class GameService {
     })
   }
 
+  saveCharacter(character) {
+    this.characters.push(character);
+  }
+
 }

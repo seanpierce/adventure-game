@@ -1,23 +1,25 @@
-  <div class="animation-container {{transitionEffect? 'transitionEffect' : ''}}">
-    <div *ngIf="showQuestions != true">
-      <h3>You become aware. You can't recognize where you are. A voice echoes inside your head, persistent questions.</h3>
-      <span (click)="showQuestions = true" class="continue user-action">Continue</span>
-    </div>
 
-    <div *ngIf="showQuestions">
-      <div *ngFor="let question of questions">
-        <div *ngIf="question.id === questionIncrementer">
-          <h3 id="{{question.id}}">{{question.question}}</h3>
-            <ul class="choices">
-              <li *ngFor="let answer of question.answers" (click)="updateStats(player, answer.str, answer.int, answer.char); nextQuestion(questionIncrementer)" class="user-action">{{answer.answer}}</li>
-            </ul>
-        </div>
+<div class="animation-container {{transitionEffect? 'transitionEffect' : ''}}">
+  <div *ngIf="showQuestions != true">
+    <h3>You become aware. You can't recognize where you are. A voice echoes inside your head, persistent questions.</h3>
+    <input #characterName placeholder="Your name">
+    <span (click)="showQuestions=true; createCharacter(characterName.value)" class="continue user-action">Continue</span>
+  </div>
+
+  <div *ngIf="showQuestions">
+    <div *ngFor="let question of questions">
+      <div *ngIf="question.id === questionIncrementer">
+        <h3 id="{{question.id}}">{{question.question}}</h3>
+          <ul class="choices">
+            <li *ngFor="let answer of question.answers" (click)="updateStats(player, answer.str, answer.int, answer.char); nextQuestion(questionIncrementer)" class="user-action">{{answer.answer}}</li>
+          </ul>
       </div>
     </div>
-
-    <div *ngIf="questionIncrementer > questions.length">
-      <h3>Are you ready to wake up?</h3>
-      <span class="continue user-action" (click)="updateStats(player, 0, 2, 0); transitionEffect=true; startGame();">Yes</span>
-      <span class="continue user-action" (click)="updateStats(player, 0, 0, 2); transitionEffect=true; startGame();">No</span>
-    </div>
   </div>
+
+  <div *ngIf="questionIncrementer > questions.length">
+    <h3>Are you ready to wake up?</h3>
+    <span class="continue user-action" (click)="updateStats(player, 0, 2, 0); transitionEffect=true; startGame(player);">Yes</span>
+    <span class="continue user-action" (click)="updateStats(player, 0, 0, 2); transitionEffect=true; startGame(player);">No</span>
+  </div>
+</div>
