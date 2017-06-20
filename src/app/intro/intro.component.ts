@@ -16,8 +16,9 @@ export class IntroComponent implements OnInit {
   questions;
   questionIncrementer: number = 1;
   constructor(private router: Router) {
-    this.player = new Character(10, 10, 10);
+    this.player = new Character("Fergie", 10, 10, 10, "Kn5HfwdeyGD08eHUTnU");
     this.questions = questions;
+    console.log(this.player);
   }
 
   ngOnInit() {
@@ -31,7 +32,7 @@ export class IntroComponent implements OnInit {
 
   startGame() {
     setTimeout(() => {
-      this.router.navigate(['/scene/0']);
+      this.router.navigate(['/scene/-Kn5HfwdeyGD08eHUTnU']);
     }, 2000);
   }
 
