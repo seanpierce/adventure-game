@@ -6,6 +6,7 @@ import { AdminComponent } from './admin/admin.component';
 import { SceneComponent } from './scene/scene.component';
 import { EditorComponent } from './editor/editor.component';
 import { IntroComponent } from './intro/intro.component';
+import { CharactersComponent } from './characters/characters.component';
 
 const appRoutes: Routes = [
   {
@@ -23,6 +24,10 @@ const appRoutes: Routes = [
   {
     path: 'intro',
     component: IntroComponent
+  },
+  {
+    path: 'characters',
+    component: CharactersComponent
   }
 ];
 
