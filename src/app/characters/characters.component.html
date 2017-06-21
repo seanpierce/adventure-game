@@ -1,11 +1,12 @@
 <div *ngFor="let character of characters | async">
-  <h3>{{character.name}}</h3>
+  <h3><a routerLink="/scene/{{character.$key}}">{{character.name}}</a></h3>
   <ul>
-    <li>Id: {{character.$key}}</li>
-    <li>Strength: {{character.strength}}</li>
-    <li>Intelligence: {{character.intelligence}}</li>
-    <li>Charisma: {{character.charisma}}</li>
-    <li>Current Scene: {{character.currentScene}}</li>
+    <li><strong>Current Scene:</strong> {{sceneName(character.currentScene)}}</li>
+    <li><strong>Strength:</strong> {{character.strength}}</li>
+    <li><strong>Intelligence:</strong> {{character.intelligence}}</li>
+    <li><strong>Charisma:</strong> {{character.charisma}}</li>
+
   </ul>
+  <button (click)="delete(character)" type="button" name="button">delete</button>
   <hr>
 </div>

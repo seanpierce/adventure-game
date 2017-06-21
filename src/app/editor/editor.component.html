@@ -12,6 +12,6 @@
 
   <h2>SCENES</h2>
   <div class="scene" *ngFor="let scene of scenes | async">
-    <app-edit-scene [scene]="scene"></app-edit-scene>
+    <app-edit-scene (playerUpdate)="demoScene($event)" [sceneId]="scene.$key"></app-edit-scene>
   </div>
 </div>
