@@ -42,6 +42,13 @@ export class GameService {
     })
   }
 
+  updatePlayer(localPlayer){
+    let dbPlayer = this.getPlayerById(localPlayer.$key);
+    dbPlayer.update({
+      currentScene: localPlayer.currentScene
+    })
+  }
+
   addChoice(localScene){
     let dbScene = this.getSceneById(localScene.$key)
     dbScene.update({

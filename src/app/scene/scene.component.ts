@@ -54,6 +54,8 @@ export class SceneComponent implements OnInit {
 
   nextScene(id){
     this.currentScene = this.getSceneById(id);
+    this.player.currentScene = this.currentScene.$key
+    this.gameService.updatePlayer(this.player);
     this.currentScene.state = 'showing';
   }
 
