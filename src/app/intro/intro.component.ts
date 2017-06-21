@@ -51,7 +51,7 @@ export class IntroComponent implements OnInit {
   }
 
   createCharacter(name) {
-    this.player = new Character(name, 10, 10, 10, "-Kn5HfwdeyGD08eHUTnU");
+    this.player = new Character(name, 10, 10, 10, "-Kn6Vix9TqbUFt_2Njn7");
   }
 
   collectId(id) {
