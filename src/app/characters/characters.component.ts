@@ -19,4 +19,8 @@ export class CharactersComponent implements OnInit {
     this.characters = this.gameService.allCharacters();
   }
 
+  delete(character){
+    this.gameService.deletePlayer(character);
+  }
+
 }
