@@ -15,10 +15,11 @@ import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/data
 })
 export class IntroComponent implements OnInit {
 
-
   player;
   questions;
   questionIncrementer: number = 1;
+  userCodeError;
+
   constructor(private router: Router, private gameService: GameService) {
     this.player
     this.questions = questions;
@@ -50,7 +51,23 @@ export class IntroComponent implements OnInit {
   }
 
   createCharacter(name) {
-    this.player = new Character(name, 10, 10, 10, "-Kn6N8DR7W-qWWbMR5sk");
+    this.player = new Character(name, 10, 10, 10, "-Kn5HfwdeyGD08eHUTnU");
   }
 
+  collectId(id) {
+    let valid = false;
+    this.gameService.allCharacters().subscribe(data => {
+      data.forEach(function(char){
+        if(id === char.$key){
+          valid = true;
+        }
+      })
+
+      if(valid) {
+        this.router.navigate(['scene/'+id]);
+      } else {
+        this.userCodeError = "That was not a valid code!";
+      }
+    });
+  }
 }

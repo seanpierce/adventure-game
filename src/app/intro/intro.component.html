@@ -1,9 +1,23 @@
 
 <div class="animation-container {{transitionEffect? 'transitionEffect' : ''}}">
-  <div *ngIf="showQuestions != true">
-    <h3>You become aware. You can't recognize where you are. A voice echoes inside your head, persistent questions.</h3>
-    <input #characterName placeholder="Your name">
-    <span (click)="showQuestions=true; createCharacter(characterName.value)" class="continue user-action">Continue</span>
+
+  <div *ngIf="enterIntro != true">
+    <h2>Adventure Game</h2>
+    <h4 class="user-action" (click)="enterIntro=true">Start New Game</h4>
+    <h4 class="user-action" (click)="returning = !returning">Continue Game</h4>
+    <div *ngIf="returning">
+      <input #resume placeholder="Enter Your Continue Code">
+      <span class="user-action" (click)="collectId(resume.value)">Submit</span>
+      <h4>{{userCodeError}}</h4>
+    </div>
+  </div>
+
+  <div *ngIf="enterIntro === true">
+    <div *ngIf="showQuestions != true">
+      <h3>You become aware. You can't recognize where you are. A voice echoes inside your head, persistent questions.</h3>
+      <input #characterName placeholder="Your name">
+      <span (click)="showQuestions=true; createCharacter(characterName.value)" class="continue user-action">Continue</span>
+    </div>
   </div>
 
   <div *ngIf="showQuestions">
