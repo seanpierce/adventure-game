@@ -10,13 +10,22 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 })
 
 export class CharactersComponent implements OnInit {
-  constructor(private gameService: GameService) {
-  }
+  constructor(private gameService: GameService){}
 
   characters;
+  scenes;
 
   ngOnInit() {
+    this.gameService.allScenes().subscribe(data => {
+      this.scenes = data;
+    });
     this.characters = this.gameService.allCharacters();
+  }
+
+  sceneName(id){
+    return this.scenes.find(function(s){
+      return s.$key === id;
+    }).title;
   }
 
   delete(character){
