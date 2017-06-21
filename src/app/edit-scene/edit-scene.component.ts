@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { GameService } from '../game.service';
 import { FirebaseListObservable } from 'angularfire2/database'
 
@@ -8,9 +8,10 @@ import { FirebaseListObservable } from 'angularfire2/database'
   styleUrls: ['./edit-scene.component.css'],
   providers: [GameService]
 })
-// NOTE: explore passing scene key rather than scene
 export class EditSceneComponent implements OnInit {
-  @Input() scene;
+  @Input() sceneId;
+  @Output() playerUpdate = new EventEmitter();
+
   scenes: FirebaseListObservable<any[]>;
   sceneData;
 
@@ -18,9 +19,9 @@ export class EditSceneComponent implements OnInit {
 
   ngOnInit() {
     this.scenes = this.gameService.allScenes();
-    this.gameService.getSceneById(this.scene.$key).subscribe(dataLastEmitted => {
+    this.gameService.getSceneById(this.sceneId).subscribe(dataLastEmitted => {
       this.sceneData = dataLastEmitted;
-    })
+    });
   }
 
   deleteChoice(choice){
@@ -53,4 +54,7 @@ export class EditSceneComponent implements OnInit {
     this.gameService.updateScene(scene);
   }
 
+  demoScene(){
+    this.playerUpdate.emit(this.sceneData.$key);
+  }
 }
