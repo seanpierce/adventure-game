@@ -23,6 +23,14 @@ export class EditSceneComponent implements OnInit {
     })
   }
 
+  deleteChoice(choice){
+    let i = this.sceneData.choices.findIndex(function(c){
+      return c.text === choice.text && c.fail.text === choice.fail.text && c.success.text === choice.success.text;
+    });
+    this.sceneData.choices.splice(i,1);
+    this.gameService.addChoice(this.sceneData);
+  }
+
   addChoice(params){
     if (!this.sceneData.choices) {
       this.sceneData.choices = [];
