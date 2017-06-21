@@ -6,12 +6,22 @@
 <div *ngIf="sceneData?.choices">
   <hr>
   <h3>choices:</h3>
-  <ul>
-    <li *ngFor="let choice of sceneData.choices">
-      <strong>{{choice.text}}</strong><br>
-        <strong><em>success</em></strong> {{choice.success.text}}<br>
-        <strong><em>failure</em></strong> {{choice.fail.text}}<br>
+  <ul *ngIf="choice">
+    <li  *ngFor="let choice of sceneData.choices">
+      <div class="">
+        <h4>{{choice.text}}</h4>
+        <p><strong><em>difficulty</em></strong>: <em>trait</em> {{choice.difficulty.trait}}: {{choice.difficulty.score}}</p>
+        <p>
+          <strong class="success"><em>success:</em></strong> "{{choice.success.text}}"
+          <strong><em>scene:</em></strong> {{sceneName(choice.success.id)}}
+        </p>
+        <p>
+          <strong class="failure"><em>failure:</em></strong> "{{choice.fail.text}}"
+          <strong><em>scene:</em></strong> {{sceneName(choice.fail.id)}}
+        </p>
+        <!-- <strong><em>failure</em></strong> {{choice.fail.text}}<br> -->
         <button (click)="deleteChoice(choice)" type="button">delete</button>
+      </div>
     </li>
   </ul>
 </div>
@@ -37,14 +47,14 @@
 <input #success type="text">
 <label>scene</label>
 <select #successChoice>
-  <option *ngFor="let scene of scenes | async" value="{{scene.$key}}">{{scene.title}}</option>
+  <option *ngFor="let scene of scenes" value="{{scene.$key}}">{{scene.title}}</option>
 </select><br>
 <label><strong>failure</strong></label><br>
 <label>text:</label>
 <input #fail type="text">
 <label>scene</label>
 <select #failChoice>
-  <option *ngFor="let scene of scenes | async" value="{{scene.$key}}">{{scene.title}}</option>
+  <option *ngFor="let scene of scenes" value="{{scene.$key}}">{{scene.title}}</option>
 </select>
 <button (click)="addChoice({
   text: cText.value,

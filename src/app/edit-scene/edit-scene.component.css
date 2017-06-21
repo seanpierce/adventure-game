@@ -6,3 +6,11 @@
 .ng-dirty {
   background-color: rgba(210,0,0,0.3);
 }
+
+.failure {
+  color: salmon;
+}
+
+.success {
+  color: rgb(0,110,0);
+}
