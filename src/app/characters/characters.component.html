@@ -1,5 +1,5 @@
 <div *ngFor="let character of characters | async">
-  <h3>{{character.name}}</h3>
+  <h3><a routerLink="/scene/{{character.$key}}">{{character.name}}</a></h3>
   <ul>
     <li>Id: {{character.$key}}</li>
     <li>Strength: {{character.strength}}</li>
