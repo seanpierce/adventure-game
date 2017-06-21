@@ -10,6 +10,7 @@
     <li *ngFor="let choice of sceneData.choices">
       <div class="">
         <h4>{{choice.text}}</h4>
+        <p><strong><sem>difficulty</em></strong>: <em>trait</em> {{choice.difficulty.trait}}: {{choice.difficulty.score}}</p> 
         <p>
           <strong class="success"><em>success:</em></strong> "{{choice.success.text}}"
           <strong><em>scene:</em></strong> {{sceneName(choice.success.id)}}
