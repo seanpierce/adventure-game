@@ -1,1 +1,9 @@
+#dev-footer {
+  position: fixed;
+  top: 0;
+  right: 10px;
+}
 
+#dev-footer a:visited {
+  color: red;
+}

@@ -1,13 +1,15 @@
 <div class="animation-container">
-  <div *ngIf="hideScene != true">
-    <h3>{{sceneData?.text}}</h3>
-    <ul *ngIf="sceneData?.choices" class="choices">
-      <li class="user-action" (click)="makeChoice(choice); hideScene = true;" *ngFor="let choice of sceneData.choices">{{choice.text}}</li>
+
+  <div *ngIf="currentScene?.state === 'showing'">
+    <h3>{{currentScene?.text}}</h3>
+    <ul *ngIf="currentScene?.choices" class="choices">
+      <li class="user-action" (click)="makeChoice(choice)" *ngFor="let choice of currentScene.choices">{{choice.text}}</li>
     </ul>
   </div>
 
-  <div *ngIf="decisionId">
-    <h3 [innerHtml]="responseText"></h3>
-    <span (click)=" nextScene(decisionId); hideScene = false; decisionId= '';" class="user-action">Continue</span>
+  <div *ngIf="currentScene?.state === 'resolved'">
+    <h3>{{currentScene.resolution.text}}</h3>
+    <span (click)=" nextScene(currentScene.resolution.id)" class="user-action">Continue</span>
   </div>
+
 </div>

@@ -1,12 +1,18 @@
 <input id="title" [(ngModel)]="sceneData.title" type="text">
 <textarea [(ngModel)]="sceneData.text" rows="8" cols="80"></textarea>
 <button (click)="updateScene(sceneData)" type="button">save</button>
+<a href="/scene/{{sceneData.$key}}">{{sceneData.$key}}</a>
 
 <div *ngIf="sceneData?.choices">
   <hr>
   <h3>choices:</h3>
   <ul>
-    <li *ngFor="let choice of sceneData.choices">{{choice.text}}</li>
+    <li *ngFor="let choice of sceneData.choices">
+      <strong>{{choice.text}}</strong><br>
+        <strong><em>success</em></strong> {{choice.success.text}}<br>
+
+        <strong><em>failure</em></strong> {{choice.fail.text}}<br>
+    </li>
   </ul>
 </div>
 

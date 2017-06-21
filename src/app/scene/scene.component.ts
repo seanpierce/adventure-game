@@ -17,40 +17,60 @@ export class SceneComponent implements OnInit {
     private route: ActivatedRoute,
     private location: Location,
     private router: Router
-  ) { }
+  ) {}
 
-  sceneId;
-  scene;
-  sceneData;
-  decisionId;
-  responseText;
+  dbScenes;
+  currentScene;
+  player;
 
   ngOnInit() {
-    let id;
+    let playerId;
     this.route.params.forEach((urlParameters) => {
-      id = urlParameters['id']
+      playerId = urlParameters['id']
     });
 
-    this.gameService.getSceneById(id).subscribe(dataLastEmitted => {
-      this.sceneData = dataLastEmitted;
+    this.gameService.allScenes().subscribe(dataLastEmitted => {
+      this.dbScenes = dataLastEmitted;
+      // console.log(this.dbScenes)
+    })
+
+    this.gameService.getPlayerById(playerId).subscribe(dataLastEmitted => {
+      this.player = dataLastEmitted;
+
+      this.gameService.getSceneById(this.player.currentScene).subscribe(dataLastEmitted => {
+        this.currentScene = dataLastEmitted;
+        this.currentScene.state = 'showing';
+      })
+    })
+
+
+  }
+
+  getSceneById(id){
+    return this.dbScenes.find(function(scene){
+      return scene.$key === id
     })
   }
 
   nextScene(id){
-    // this.router.navigate(['scene', id]);
-    this.gameService.getSceneById(id).subscribe(dataLastEmitted => {
-      this.sceneData = dataLastEmitted;
-    })
+    this.currentScene = this.getSceneById(id);
+    this.player.currentScene = this.currentScene.$key
+    this.gameService.updatePlayer(this.player);
+    this.currentScene.state = 'showing';
   }
 
   makeChoice(choice){
-    this.decisionId = "";
+    this.currentScene.state = 'resolved';
     if (Math.random() >= 0.5){
-      this.responseText = choice.success.text;
-      this.decisionId = choice.success.id;
+      this.currentScene.resolution = {
+        text: choice.success.text,
+        id: choice.success.id
+      }
     } else {
-      this.responseText = choice.fail.text;
-      this.decisionId = choice.fail.id;
+      this.currentScene.resolution = {
+        text: choice.fail.text,
+        id: choice.fail.id
+      }
     }
   }
 }

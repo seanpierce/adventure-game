@@ -39,7 +39,7 @@ export class IntroComponent implements OnInit {
     this.gameService.allCharacters().subscribe(charData => {
       let currentPlayer = charData.slice(-1)[0];
       setTimeout(() => {
-        this.router.navigate([`/scene/${currentPlayer.currentScene}`]);
+        this.router.navigate([`/scene/${currentPlayer.$key}`]);
       }, 2000);
     });
 
@@ -50,7 +50,7 @@ export class IntroComponent implements OnInit {
   }
 
   createCharacter(name) {
-    this.player = new Character(name, 10, 10, 10, "-Kn5HfwdeyGD08eHUTnU");
+    this.player = new Character(name, 10, 10, 10, "-Kn6N8DR7W-qWWbMR5sk");
   }
 
 }

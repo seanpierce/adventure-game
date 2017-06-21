@@ -18,4 +18,9 @@ export class EditorComponent implements OnInit {
   ngOnInit() {
     this.scenes = this.gameService.allScenes();
   }
+
+  addScene(title: string, text: string){
+    let newScene = new Scene(title || 'default title', text || 'default value');
+    this.gameService.addScene(newScene);
+  }
 }

@@ -26,6 +26,10 @@ export class GameService {
     return this.scenes;
   }
 
+  getPlayerById(id){
+    return this.database.object('characters/' + id)
+  }
+
   addScene(scene: Scene){
     this.scenes.push(scene);
   }
@@ -35,6 +39,13 @@ export class GameService {
     dbScene.update({
       title: localScene.title,
       text: localScene.text
+    })
+  }
+
+  updatePlayer(localPlayer){
+    let dbPlayer = this.getPlayerById(localPlayer.$key);
+    dbPlayer.update({
+      currentScene: localPlayer.currentScene
     })
   }
 
