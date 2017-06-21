@@ -60,4 +60,9 @@ export class GameService {
     this.characters.push(character);
   }
 
+  deletePlayer(localPlayer){
+    let dbPlayer = this.getPlayerById(localPlayer.$key);
+    dbPlayer.remove();
+  }
+
 }
