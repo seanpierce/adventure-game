@@ -38,6 +38,10 @@ export class EditSceneComponent implements OnInit {
     }
     this.sceneData.choices.push({
       text: params.text || 'default choice',
+      difficulty: {
+        trait: params.trait,
+        score: params.score || '0'
+      },
       success: {
         text: params.success || 'default success text',
         id: params.successId,
