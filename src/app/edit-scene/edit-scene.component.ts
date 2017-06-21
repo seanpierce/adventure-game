@@ -12,13 +12,16 @@ export class EditSceneComponent implements OnInit {
   @Input() sceneId;
   @Output() playerUpdate = new EventEmitter();
 
-  scenes: FirebaseListObservable<any[]>;
+  scenes;
   sceneData;
 
   constructor(private gameService: GameService) {}
 
   ngOnInit() {
     this.scenes = this.gameService.allScenes();
+    this.gameService.allScenes().subscribe(data => {
+      this.scenes = data;
+    })
     this.gameService.getSceneById(this.sceneId).subscribe(dataLastEmitted => {
       this.sceneData = dataLastEmitted;
     });
@@ -56,5 +59,11 @@ export class EditSceneComponent implements OnInit {
 
   demoScene(){
     this.playerUpdate.emit(this.sceneData.$key);
+  }
+
+  sceneName(id){
+    return this.scenes.find(function(s){
+      return s.$key === id;
+    }).title;
   }
 }
