@@ -20,6 +20,18 @@
 <h3>ADD CHOICE</h3>
 <label><strong>choice</strong></label><br>
 <input #cText type="text"><br>
+
+<label><strong>difficulty</strong></label><br>
+<input #score type="text" placeholder="number to succeed roll"><br>
+
+<label><strong>modifier</strong></label><br>
+<select #trait>
+  <option value="strength">strength</option>
+  <option value="intelligence">intelligence</option>
+  <option value="charisma">charisma</option>
+</select>
+<br>
+<br>
 <label><strong>success</strong></label><br>
 <label>text:</label>
 <input #success type="text">
@@ -36,6 +48,8 @@
 </select>
 <button (click)="addChoice({
   text: cText.value,
+  score: score.value,
+  trait: trait.value,
   success: success.value,
   successId: successChoice.selectedOptions[0].value,
   fail: fail.value,
