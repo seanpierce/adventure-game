@@ -68,6 +68,7 @@ export class SceneComponent implements OnInit {
         id: choice.success.id
       }
     } else {
+      this.player.failCount += 1;
       this.currentScene.resolution = {
         text: choice.fail.text,
         id: choice.fail.id
