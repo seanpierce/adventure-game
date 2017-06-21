@@ -42,8 +42,6 @@ export class SceneComponent implements OnInit {
         this.currentScene.state = 'showing';
       })
     })
-
-
   }
 
   getSceneById(id){
