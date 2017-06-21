@@ -51,7 +51,9 @@ export class IntroComponent implements OnInit {
   }
 
   createCharacter(name) {
-    this.player = new Character(name, 10, 10, 10, "-Kn6Vix9TqbUFt_2Njn7");
+    this.gameService.allScenes().subscribe(data => {
+      this.player = new Character(name, 10, 10, 10, data.slice(0)[0].$key, 0);
+    })
   }
 
   collectId(id) {
