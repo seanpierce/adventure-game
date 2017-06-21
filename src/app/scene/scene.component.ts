@@ -59,9 +59,8 @@ export class SceneComponent implements OnInit {
 
   makeChoice(choice){
     this.currentScene.state = 'resolved';
-    let modifier;
-    let roll = Math.floor(Math.random() * 20 + 1)
-    modifier = Math.floor((this.player[choice.difficulty.trait]) / 3);
+    let roll = Math.floor(Math.random() * 20 + 1);
+    let modifier = Math.floor((this.player[choice.difficulty.trait]) / 3);
 
     if (modifier + roll >= parseInt(choice.difficulty.score)){
       this.currentScene.resolution = {
