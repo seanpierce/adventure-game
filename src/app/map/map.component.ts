@@ -27,10 +27,10 @@ export class MapComponent implements OnInit {
     paper.setup(document.getElementById(`canvas`))
     this.gameService.allScenes().subscribe(data => {
       this.scenes = data;
-      this.gameService.allCharacters().subscribe(data => {
-        this.players = data;
-        this.startMap();
-      });
+    });
+    this.gameService.allCharacters().subscribe(data => {
+      this.players = data;
+      this.startMap();
     });
   }
 
@@ -40,41 +40,38 @@ export class MapComponent implements OnInit {
   }
 
   createPlayer(){
-    this.gameService.allScenes().subscribe(data => {
-      this.player = new Character('Alfred the Undying', 100, 100, 100, data.slice(0)[0].$key, 0);
-      this.gameService.saveCharacter(this.player);
-      this.gameService.allCharacters().subscribe(data => {
-        this.player = data.slice(-1)[0];
-      });
-    });
+    this.player = new Character('Alfred the Undying', 100, 100, 100, this.scenes.slice(0)[0].$key, 0);
+
+    this.gameService.saveCharacter(this.player);
+
+    this.player = this.players.slice(-1)[0];
+
     this.startMoves(Math.floor((Math.random() * (6000 - 1000) + 1000)));
   }
-  // ,
+
 
   startMoves(delay){
     let that = this;
     setTimeout(function(){
-      console.log(that.player.$key);
       let out = that.scenes.find(s => {
         return s.$key === that.player.currentScene;
       });
-      if(out && out.choices){
-        let next = out.choices[(Math.floor(Math.random() * (out.choices.length)))];
-        that.player.currentScene = next.success.id;
-        if(!that.scenes.find(s => {
-          return s.$key === that.player.currentScene;
-        }).choices){
-          that.gameService.deletePlayer(that.player);
-          that.createPlayer();
-        } else {
-          that.gameService.updatePlayer(that.player);
-          that.startMoves(Math.floor((Math.random() * (6000 - 1000) + 1000)));
-        }
+
+      let next = out.choices[(Math.floor(Math.random() * (out.choices.length)))];
+      that.player.currentScene = next.success.id;
+      let nextScene = that.scenes.find(s => {
+        return s.$key === that.player.currentScene;
+      });
+
+      if(!nextScene.choices){
+        that.gameService.deletePlayer(that.player);
+        that.createPlayer();
+      } else {
+        that.gameService.updatePlayer(that.player);
+        that.startMoves(Math.floor((Math.random() * (6000 - 1000) + 1000)));
       }
     }, delay, that);
   }
-
-
 
   barify(){
     let arr = [];
