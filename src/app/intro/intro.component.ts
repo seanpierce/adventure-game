@@ -16,7 +16,9 @@ import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/data
 export class IntroComponent implements OnInit {
 
   player;
+  allPlayers;
   questions;
+  scenes;
   questionIncrementer: number = 1;
   userCodeError;
   enterIntro: boolean = false;
@@ -24,12 +26,18 @@ export class IntroComponent implements OnInit {
   transitionEffect: boolean = false;
 
   constructor(private router: Router, private gameService: GameService) {
-    this.player
     this.questions = questions;
-
   }
 
-  ngOnInit() {
+  ngOnInit(){
+    this.gameService.allCharacters().subscribe(data => {
+      console.log('players subscription called');
+      this.allPlayers = data;
+    });
+
+    this.gameService.allScenes().subscribe(data => {
+      this.scenes = data;
+    });
   }
 
   updateStats(player, str, int, char) {
@@ -40,12 +48,10 @@ export class IntroComponent implements OnInit {
 
   startGame(player) {
     this.gameService.saveCharacter(player);
-    this.gameService.allCharacters().subscribe(charData => {
-      let currentPlayer = charData.slice(-1)[0];
+    let currentPlayer = this.allPlayers.slice(-1)[0];
       setTimeout(() => {
         this.router.navigate([`/scene/${currentPlayer.$key}`]);
       }, 2000);
-    });
 
   }
 
@@ -54,9 +60,7 @@ export class IntroComponent implements OnInit {
   }
 
   createCharacter(name) {
-    this.gameService.allScenes().subscribe(data => {
-      this.player = new Character(name, 10, 10, 10, data.slice(0)[0].$key, 0);
-    })
+    this.player = new Character(name, 10, 10, 10, this.scenes.slice(0)[0].$key, 0)
   }
 
   collectId(id) {
