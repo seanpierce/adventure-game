@@ -21,10 +21,13 @@
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
     "angularfire2": "^4.0.0-rc.0",
+    "code-point-at": "^1.1.0",
     "core-js": "^2.4.1",
     "firebase": "^3.6.6",
+    "git-pair": "^0.1.2",
     "paper": "^0.11.4",
     "rxjs": "^5.1.0",
+    "url-parse": "^1.1.9",
     "zone.js": "^0.8.4"
   },
   "devDependencies": {
