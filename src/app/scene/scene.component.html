@@ -1,4 +1,4 @@
-<div class="animation-container {{transitionEffect ? 'transitionEffect' : ''}}">
+<div class="animation-container {{transitionEffect ? 'transitionEffect' : ''}}" [@heroState]="animationState">
 
   <div *ngIf="currentScene?.state === 'showing'">
     <h3>{{currentScene?.text}}</h3>
