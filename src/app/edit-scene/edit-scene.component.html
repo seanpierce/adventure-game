@@ -1,3 +1,4 @@
+<span id="{{sceneData.title}}"></span>
 <input id="title" [(ngModel)]="sceneData.title" type="text">
 <textarea [(ngModel)]="sceneData.text" rows="8" cols="80"></textarea>
 <button (click)="updateScene(sceneData)" type="button">save</button><br>
@@ -6,7 +7,7 @@
 <div *ngIf="sceneData?.choices">
   <hr>
   <h3>choices:</h3>
-  <ul>
+  <ul *ngIf="choice">
     <li  *ngFor="let choice of sceneData.choices">
       <div class="">
         <h4>{{choice.text}}</h4>

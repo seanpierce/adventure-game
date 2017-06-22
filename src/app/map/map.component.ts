@@ -49,10 +49,12 @@ export class MapComponent implements OnInit {
     });
     this.startMoves(Math.floor((Math.random() * (6000 - 1000) + 1000)));
   }
+  // ,
 
   startMoves(delay){
     let that = this;
     setTimeout(function(){
+      console.log(that.player.$key);
       let out = that.scenes.find(s => {
         return s.$key === that.player.currentScene;
       });
@@ -96,8 +98,8 @@ export class MapComponent implements OnInit {
     let barWidth = paper.view.bounds.height/this.scenes.length;
     this.scenes.forEach((scene, i) => {
       let p = new paper.Point(0, barWidth * i);
-      segments.push([(arr[i]+1)*2,(barWidth * i+(barWidth/2))])
-      let t = new paper.PointText(arr[i]*2+10,p.y+barWidth/1.7);
+      segments.push([(arr[i]+1)*10,(barWidth * i+(barWidth/2))])
+      let t = new paper.PointText(arr[i]*10+10,p.y+barWidth/1.7);
       t.setFillColor('white');
       t.setContent(scene.title);
       this.elements.push(t);

@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 
 export class EditorComponent implements OnInit {
   scenes: FirebaseListObservable<any[]>;
+  sceneSelected;
   defaultPlayer;
   defaultPlayerKey: string = '-KnA6vYA_Ayfas3HV5eb';
 
@@ -34,5 +35,9 @@ export class EditorComponent implements OnInit {
     this.defaultPlayer.currentScene = sceneId;
     this.gameService.updatePlayer(this.defaultPlayer);
     this.router.navigate(['scene/' + this.defaultPlayer.$key]);
+  }
+
+  onChange(scene) {
+    window.location.hash = scene;
   }
 }
