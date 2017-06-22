@@ -41,7 +41,7 @@ export class MapComponent implements OnInit {
 
   createPlayer(){
     this.gameService.allScenes().subscribe(data => {
-      this.player = new Character('Alfred the Undying', 100, 100, 100, data.slice(-1)[0], 0);
+      this.player = new Character('Alfred the Undying', 100, 100, 100, data.slice(0)[0].$key, 0);
       this.gameService.saveCharacter(this.player);
       this.gameService.allCharacters().subscribe(data => {
         this.player = data.slice(-1)[0];
