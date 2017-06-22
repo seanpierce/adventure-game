@@ -13,7 +13,7 @@
   </div>
 
   <div *ngIf="currentScene?.endGame">
-    <span class="user-action" (click)="endIt()">the end</span>
+    <span class="user-action" (click)="endIt(); transitionEffect=true;">the end</span>
   </div>
 
 </div>

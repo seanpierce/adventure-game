@@ -22,6 +22,7 @@ export class SceneComponent implements OnInit {
   dbScenes;
   currentScene;
   player;
+  transitionEffect: boolean = false;
 
   ngOnInit() {
     let playerId;
