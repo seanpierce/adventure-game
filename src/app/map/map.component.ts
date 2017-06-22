@@ -74,8 +74,6 @@ export class MapComponent implements OnInit {
     }, delay, that);
   }
 
-
-
   barify(){
     let arr = [];
     for(let i = 0; i < this.scenes.length; i++){
@@ -113,5 +111,13 @@ export class MapComponent implements OnInit {
     path.setStrokeColor('white');
     path.setFillColor('white');
     this.elements.push(path);
+  }
+
+  alfredPurge() {
+    this.players.forEach(player =>{
+      if(player.name === "Alfred the Undying") {
+        this.gameService.deletePlayer(player);
+      }
+    });
   }
 }
