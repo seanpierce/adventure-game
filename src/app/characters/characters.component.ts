@@ -23,9 +23,10 @@ export class CharactersComponent implements OnInit {
   }
 
   sceneName(id){
-    return this.scenes.find(function(s){
+    let out = this.scenes.find(function(s){
       return s.$key === id;
-    }).title;
+    });
+    return out ? out.title : "undefined";
   }
 
   delete(character){
