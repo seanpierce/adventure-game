@@ -37,6 +37,7 @@ export class GameService {
   updateScene(localScene){
     let dbScene = this.getSceneById(localScene.$key);
     dbScene.update({
+      endGame: localScene.endGame,
       title: localScene.title,
       text: localScene.text
     })

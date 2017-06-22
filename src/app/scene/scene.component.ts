@@ -75,4 +75,8 @@ export class SceneComponent implements OnInit {
       }
     }
   }
+
+  endIt() {
+    this.router.navigate([`/intro`]);
+  }
 }

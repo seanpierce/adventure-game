@@ -58,6 +58,7 @@ export class EditSceneComponent implements OnInit {
   }
 
   updateScene(scene){
+    console.log(scene);
     this.gameService.updateScene(scene);
   }
 
