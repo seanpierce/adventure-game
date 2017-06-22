@@ -10,7 +10,8 @@
   top: 0;
   width: 100%;
   height: 110%;
-  animation: throb 10s infinite linear;
+  /*animation: throb 10s infinite linear;*/
+  background-color: black;
   color: white;
   overflow-x: scroll;
 }

@@ -12,24 +12,24 @@ import { MapComponent } from './map/map.component';
 const appRoutes: Routes = [
   {
     path: '',
-    component: IntroComponent
+    component: AdminComponent
   },
   {
     path: 'scene/:id',
     component: SceneComponent
   },
-  // {
-  //   path: 'editor',
-  //   component: EditorComponent
-  // },
+  {
+    path: 'editor',
+    component: EditorComponent
+  },
   {
     path: 'intro',
     component: IntroComponent
   },
-  // {
-  //   path: 'characters',
-  //   component: CharactersComponent
-  // },
+  {
+    path: 'characters',
+    component: CharactersComponent
+  },
   {
     path: 'map',
     component: MapComponent

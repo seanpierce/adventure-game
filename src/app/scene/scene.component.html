@@ -1,4 +1,4 @@
-<div class="animation-container">
+<div class="animation-container" [@heroState]="animationState">
 
   <div *ngIf="currentScene?.state === 'showing'">
     <h3>{{currentScene?.text}}</h3>
@@ -15,5 +15,11 @@
   <div *ngIf="currentScene?.endGame">
     <span class="user-action" (click)="endIt()">end it</span>
   </div>
+
+  <ul>
+    <li (click)="toggleState()">
+      test
+    </li>
+  </ul>
 
 </div>
