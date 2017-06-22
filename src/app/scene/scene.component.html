@@ -1,4 +1,4 @@
-<div class="animation-container" [@heroState]="animationState">
+<div class="animation-container {{transitionEffect ? 'transitionEffect' : ''}}" [@heroState]="animationState">
 
   <div *ngIf="currentScene?.state === 'showing'">
     <h3>{{currentScene?.text}}</h3>
@@ -13,13 +13,11 @@
   </div>
 
   <div *ngIf="currentScene?.endGame">
-    <span class="user-action" (click)="endIt()">end it</span>
+    <span class="user-action" (click)="endIt(); transitionEffect=true;">the end</span>
   </div>
 
-  <ul>
-    <li (click)="toggleState()">
-      test
-    </li>
-  </ul>
-
+  <p id="player-key" *ngIf="player">
+    continue code:
+    {{player.$key}}
+  </p>
 </div>

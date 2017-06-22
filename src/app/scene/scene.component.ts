@@ -56,9 +56,11 @@ export class SceneComponent implements OnInit {
   dbScenes;
   currentScene;
   player;
+
   animationState;
   playerCount = 0;
-
+  transitionEffect: boolean = false;
+  
   toggleState(){
     if(this.animationState === 'active'){
       this.animationState = 'inactive';
@@ -128,6 +130,8 @@ export class SceneComponent implements OnInit {
   }
 
   endIt() {
-    this.router.navigate([`/intro`]);
+    setTimeout(() => {
+      this.router.navigate([`/intro`]);
+    }, 2000);
   }
 }

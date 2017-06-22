@@ -4,70 +4,72 @@
 <button (click)="updateScene(sceneData)" type="button">save</button><br>
 <button (click)="demoScene()" type="button">demo scene</button>
 
-<div *ngIf="sceneData?.choices">
+<div *ngIf="!sceneData.endGame">
+  <div *ngIf="sceneData?.choices">
+    <hr>
+    <h3>choices:</h3>
+    <ul>
+      <li  *ngFor="let choice of sceneData.choices">
+        <div class="">
+          <h4>{{choice.text}}</h4>
+          <p><strong><em>difficulty</em></strong>: <em>trait</em> {{choice.difficulty.trait}}: {{choice.difficulty.score}}</p>
+          <p>
+            <strong class="success"><em>success:</em></strong> "{{choice.success.text}}"
+            <strong><em>scene:</em></strong> {{sceneName(choice.success.id)}}
+          </p>
+          <p>
+            <strong class="failure"><em>failure:</em></strong> "{{choice.fail.text}}"
+            <strong><em>scene:</em></strong> {{sceneName(choice.fail.id)}}
+          </p>
+          <!-- <strong><em>failure</em></strong> {{choice.fail.text}}<br> -->
+          <button (click)="deleteChoice(choice)" type="button">delete</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+
   <hr>
-  <h3>choices:</h3>
-  <ul *ngIf="choice">
-    <li  *ngFor="let choice of sceneData.choices">
-      <div class="">
-        <h4>{{choice.text}}</h4>
-        <p><strong><em>difficulty</em></strong>: <em>trait</em> {{choice.difficulty.trait}}: {{choice.difficulty.score}}</p>
-        <p>
-          <strong class="success"><em>success:</em></strong> "{{choice.success.text}}"
-          <strong><em>scene:</em></strong> {{sceneName(choice.success.id)}}
-        </p>
-        <p>
-          <strong class="failure"><em>failure:</em></strong> "{{choice.fail.text}}"
-          <strong><em>scene:</em></strong> {{sceneName(choice.fail.id)}}
-        </p>
-        <!-- <strong><em>failure</em></strong> {{choice.fail.text}}<br> -->
-        <button (click)="deleteChoice(choice)" type="button">delete</button>
-      </div>
-    </li>
-  </ul>
-</div>
+  <h3>ADD CHOICE</h3>
+  <label><strong>choice</strong></label><br>
+  <input #cText type="text"><br>
 
-<hr>
-<h3>ADD CHOICE</h3>
-<label><strong>choice</strong></label><br>
-<input #cText type="text"><br>
+  <label><strong>difficulty</strong></label><br>
+  <input #score type="text" placeholder="number to succeed roll"><br>
 
-<label><strong>difficulty</strong></label><br>
-<input #score type="text" placeholder="number to succeed roll"><br>
-
-<label><strong>modifier</strong></label><br>
-<select #trait>
-  <option value="strength">strength</option>
-  <option value="intelligence">intelligence</option>
-  <option value="charisma">charisma</option>
-</select>
-<br>
-<br>
-<label><strong>success</strong></label><br>
-<label>text:</label>
-<input #success type="text">
-<label>scene</label>
-<select #successChoice>
-  <option *ngFor="let scene of scenes" value="{{scene.$key}}">{{scene.title}}</option>
-</select><br>
-<label><strong>failure</strong></label><br>
-<label>text:</label>
-<input #fail type="text">
-<label>scene</label>
-<select #failChoice>
-  <option *ngFor="let scene of scenes" value="{{scene.$key}}">{{scene.title}}</option>
-</select>
-<button (click)="addChoice({
-  text: cText.value,
-  score: score.value,
-  trait: trait.value,
-  success: success.value,
-  successId: successChoice.selectedOptions[0].value,
-  fail: fail.value,
-  failId: failChoice.selectedOptions[0].value
-})" type="button">add choice</button>
-<div class="checkbox">
-  <label>
-    <input #endGame [(ngModel)]="sceneData.endGame" type="checkbox" data-toggle="toggle">end game here
-  </label>
+  <label><strong>modifier</strong></label><br>
+  <select #trait>
+    <option value="strength">strength</option>
+    <option value="intelligence">intelligence</option>
+    <option value="charisma">charisma</option>
+  </select>
+  <br>
+  <br>
+  <label><strong>success</strong></label><br>
+  <label>text:</label>
+  <input #success type="text">
+  <label>scene</label>
+  <select #successChoice>
+    <option *ngFor="let scene of scenes" value="{{scene.$key}}">{{scene.title}}</option>
+  </select><br>
+  <label><strong>failure</strong></label><br>
+  <label>text:</label>
+  <input #fail type="text">
+  <label>scene</label>
+  <select #failChoice>
+    <option *ngFor="let scene of scenes" value="{{scene.$key}}">{{scene.title}}</option>
+  </select>
+  <button (click)="addChoice({
+    text: cText.value,
+    score: score.value,
+    trait: trait.value,
+    success: success.value,
+    successId: successChoice.selectedOptions[0].value,
+    fail: fail.value,
+    failId: failChoice.selectedOptions[0].value
+  })" type="button">add choice</button>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input #endGame [(ngModel)]="sceneData.endGame" type="checkbox" data-toggle="toggle">end game here
+    </label>
 </div>
