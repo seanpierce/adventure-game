@@ -78,6 +78,8 @@ export class SceneComponent implements OnInit {
   }
 
   endIt() {
-    this.router.navigate([`/intro`]);
+    setTimeout(() => {
+      this.router.navigate([`/intro`]);
+    }, 2000);
   }
 }
