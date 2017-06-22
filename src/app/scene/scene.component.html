@@ -1,4 +1,4 @@
-<div class="animation-container">
+<div class="animation-container {{transitionEffect ? 'transitionEffect' : ''}}">
 
   <div *ngIf="currentScene?.state === 'showing'">
     <h3>{{currentScene?.text}}</h3>
@@ -16,4 +16,8 @@
     <span class="user-action" (click)="endIt(); transitionEffect=true;">the end</span>
   </div>
 
+  <p id="player-key" *ngIf="player">
+    continue code:
+    {{player.$key}}
+  </p>
 </div>

@@ -7,3 +7,24 @@
 #dev-footer a:visited {
   color: white;
 }
+
+#player-key {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  color: yellow;
+  opacity: 0.2;
+}
+
+#player-key:hover {
+  opacity: 1;
+}
+
+.transitionEffect {
+  animation: transitionEffect 2s infinite ease-in-out;
+}
+@keyframes transitionEffect {
+  0% {background-color: black; color: black;}
+  90% {background-color: white; color: white;}
+  100% {background-color: black; color: black;}
+}
