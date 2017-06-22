@@ -11,6 +11,14 @@
   </div>
 
   <h2>SCENES</h2>
+  <label>jump to scene</label>
+  <select class="btn" (change)="onChange($event.target.value)">
+    <option value="top" selected="selected">top</option>
+    
+    <option *ngFor="let scene of scenes | async" value={{scene.title}}>{{scene.title}}</option>
+
+
+  </select>
   <div class="scene" *ngFor="let scene of scenes | async">
     <app-edit-scene (playerUpdate)="demoScene($event)" [sceneId]="scene.$key"></app-edit-scene>
   </div>
