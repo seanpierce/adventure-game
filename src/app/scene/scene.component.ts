@@ -24,9 +24,6 @@ import {
     state('active',   style({
       backgroundColor: '#000',
     })),
-    // transition('* => *', [
-    //   animate(100, style({'background-color': 'rgb(25,25,25)'}))
-    // ])
     transition('* => *', [
       animate(1000, keyframes([
         style({'background-color': 'rgb(0,0,0)', offset: 0}),
@@ -60,6 +57,7 @@ export class SceneComponent implements OnInit {
   currentScene;
   player;
   animationState;
+  playerCount = 0;
 
   toggleState(){
     if(this.animationState === 'active'){
@@ -67,8 +65,6 @@ export class SceneComponent implements OnInit {
     } else {
       this.animationState = 'active';
     }
-
-    console.log('state toggled');
   }
 
   ngOnInit() {
@@ -77,10 +73,17 @@ export class SceneComponent implements OnInit {
       playerId = urlParameters['id']
     });
 
+    this.gameService.allCharacters().subscribe(data => {
+      if(this.playerCount < data.length){
+        this.toggleState();
+      }
+      this.playerCount = data.length;
+    });
+
     this.gameService.allScenes().subscribe(dataLastEmitted => {
       this.dbScenes = dataLastEmitted;
       // console.log(this.dbScenes)
-    })
+    });
 
     this.gameService.getPlayerById(playerId).subscribe(dataLastEmitted => {
       this.player = dataLastEmitted;
