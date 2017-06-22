@@ -12,4 +12,8 @@
     <span (click)=" nextScene(currentScene.resolution.id)" class="user-action">Continue</span>
   </div>
 
+  <div *ngIf="currentScene?.endGame">
+    <span class="user-action" (click)="endIt()">end it</span>
+  </div>
+
 </div>
