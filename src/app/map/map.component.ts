@@ -111,4 +111,12 @@ export class MapComponent implements OnInit {
     path.setFillColor('white');
     this.elements.push(path);
   }
+
+  alfredPurge() {
+    this.players.forEach(player =>{
+      if(player.name === "Alfred the Undying") {
+        this.gameService.deletePlayer(player);
+      }
+    });
+  }
 }
