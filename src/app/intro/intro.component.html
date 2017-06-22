@@ -1,9 +1,9 @@
 
-<div class="animation-container {{transitionEffect? 'transitionEffect' : ''}}">
+<div class="animation-container {{transitionEffect ? 'transitionEffect' : ''}}">
 
-  <div *ngIf="enterIntro != true">
+  <div *ngIf="!enterIntro">
     <h2>Adventure Game</h2>
-    <h4 class="user-action" (click)="enterIntro=true">Start New Game</h4>
+    <h4 id="start-game" class="user-action" (click)="enterIntro = true">Start New Game</h4>
     <h4 class="user-action" (click)="returning = !returning">Continue Game</h4>
     <div *ngIf="returning">
       <input #resume placeholder="Enter Your Continue Code">
@@ -12,7 +12,7 @@
     </div>
   </div>
 
-  <div *ngIf="enterIntro === true">
+  <div *ngIf="enterIntro">
     <div *ngIf="showQuestions != true">
       <h3>You become aware. You can't recognize where you are. A voice echoes inside your head, persistent questions.</h3>
       <input #characterName placeholder="Your name">
