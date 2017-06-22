@@ -19,6 +19,9 @@ export class IntroComponent implements OnInit {
   questions;
   questionIncrementer: number = 1;
   userCodeError;
+  enterIntro: boolean = false;
+  showQuestions: boolean = false;
+  transitionEffect: boolean = false;
 
   constructor(private router: Router, private gameService: GameService) {
     this.player
