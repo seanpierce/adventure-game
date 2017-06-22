@@ -58,7 +58,7 @@ export class GameService {
   }
 
   saveCharacter(character) {
-    this.characters.push(character);
+    let out = this.characters.push(character);
   }
 
   deletePlayer(localPlayer){
