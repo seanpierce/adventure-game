@@ -6,10 +6,11 @@
 <div *ngIf="sceneData?.choices">
   <hr>
   <h3>choices:</h3>
-  <ul>
-    <li *ngFor="let choice of sceneData.choices">
+  <ul *ngIf="choice">
+    <li  *ngFor="let choice of sceneData.choices">
       <div class="">
         <h4>{{choice.text}}</h4>
+        <p><strong><em>difficulty</em></strong>: <em>trait</em> {{choice.difficulty.trait}}: {{choice.difficulty.score}}</p>
         <p>
           <strong class="success"><em>success:</em></strong> "{{choice.success.text}}"
           <strong><em>scene:</em></strong> {{sceneName(choice.success.id)}}
@@ -29,6 +30,18 @@
 <h3>ADD CHOICE</h3>
 <label><strong>choice</strong></label><br>
 <input #cText type="text"><br>
+
+<label><strong>difficulty</strong></label><br>
+<input #score type="text" placeholder="number to succeed roll"><br>
+
+<label><strong>modifier</strong></label><br>
+<select #trait>
+  <option value="strength">strength</option>
+  <option value="intelligence">intelligence</option>
+  <option value="charisma">charisma</option>
+</select>
+<br>
+<br>
 <label><strong>success</strong></label><br>
 <label>text:</label>
 <input #success type="text">
@@ -45,6 +58,8 @@
 </select>
 <button (click)="addChoice({
   text: cText.value,
+  score: score.value,
+  trait: trait.value,
   success: success.value,
   successId: successChoice.selectedOptions[0].value,
   fail: fail.value,

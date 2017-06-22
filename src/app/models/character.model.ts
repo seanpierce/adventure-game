@@ -4,6 +4,7 @@ export class Character {
     public strength: number,
     public intelligence: number,
     public charisma: number,
-    public currentScene: string
+    public currentScene: string,
+    public failCount: number
   ) { }
 }

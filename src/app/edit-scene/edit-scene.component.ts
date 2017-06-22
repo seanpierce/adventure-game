@@ -41,6 +41,10 @@ export class EditSceneComponent implements OnInit {
     }
     this.sceneData.choices.push({
       text: params.text || 'default choice',
+      difficulty: {
+        trait: params.trait,
+        score: params.score || '0'
+      },
       success: {
         text: params.success || 'default success text',
         id: params.successId,
@@ -62,14 +66,9 @@ export class EditSceneComponent implements OnInit {
   }
 
   sceneName(id){
-    let out = this.scenes.find(function(s){
+    let out  = this.scenes.find(function(s){
       return s.$key === id;
     });
-
-    if (out){
-      return out.title;
-    } else {
-      return "undefined"
-    }
+    return out ? out.title : "undefined";
   }
 }

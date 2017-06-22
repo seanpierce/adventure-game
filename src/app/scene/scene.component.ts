@@ -42,8 +42,6 @@ export class SceneComponent implements OnInit {
         this.currentScene.state = 'showing';
       })
     })
-
-
   }
 
   getSceneById(id){
@@ -61,12 +59,16 @@ export class SceneComponent implements OnInit {
 
   makeChoice(choice){
     this.currentScene.state = 'resolved';
-    if (Math.random() >= 0.5){
+    let roll = Math.floor(Math.random() * 20 + 1);
+    let modifier = Math.floor((this.player[choice.difficulty.trait]) / 3);
+
+    if (modifier + roll >= parseInt(choice.difficulty.score)){
       this.currentScene.resolution = {
         text: choice.success.text,
         id: choice.success.id
       }
     } else {
+      this.player.failCount += 1;
       this.currentScene.resolution = {
         text: choice.fail.text,
         id: choice.fail.id
